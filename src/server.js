@@ -20,8 +20,8 @@ app.get("/",(req,res) =>{
 app.listen(port,()=> console.log("escuchando en el puerto", port))
 
 /* NOS CONECTAMOS A MONGODB*/
-mongoose.connect(process.env.MONGODB_URI)
-.then(()=>{
+mongoose.connect("mongodb+srv://ikcth:ABRIL2008@pelisplus.anjhmrw.mongodb.net/clentes?retryWrites=true&w=majority")
+.then((res)=>{
     console.log("conexion succsesfull");
 })
     .catch(err=>{
