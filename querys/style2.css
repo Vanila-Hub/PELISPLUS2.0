@@ -133,13 +133,15 @@ section > ul{
 .buscar{
     background: rgb(75, 78, 90);
     height: 100px;
-    width: 50vw;
-    border-radius: 100px;
+    position: relative;
+    top: 73px;
+    border-radius: 25px;
 }
 .buscar > form > input {
     height: 10.33vh;
     width: inherit;
-    margin: 10px  44px;
+    left: 43px;
+    position: relative;
     background: transparent;
     color: rgb(168, 169, 173);
     font-size: 50px;
