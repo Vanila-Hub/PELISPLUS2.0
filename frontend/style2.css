@@ -104,52 +104,155 @@ img
     object-fit: cover;
 }
 
-section > ul{
-    display: grid;
-    list-style: none;
-    row-gap: 20px;
-    height: 100%;
-    column-gap: 32px;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(250px,1fr)
-    );
-    grid-template-rows: repeat(100,45vh);
-    cursor: pointer;
-    padding: 0;
-}
-.busqItem{
-    margin-top: 50px;
-    background: var(--bgrd);
-    transition: var(--transit);
-    border-radius: 10px;
-}
-.busqItem:hover{
-    border: 7px rgba(255, 255, 255, 0.51) solid;
-    cursor: pointer;
-    height: auto;
-    transform: scale(1.05);
-}
-.buscar{
-    background: rgb(75, 78, 90);
-    height: 100px;
+.inicio{
+    background-image: linear-gradient(#05050575,rgba(255, 255, 255, 0.226));
+    display: inline-flex;
     position: relative;
-    top: 73px;
-    border-radius: 25px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 55px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 50%;
+    height: 80%;
+    left: 25%;
+    border-radius: 8px;
 }
-.buscar > form > input {
-    height: 10.33vh;
-    width: inherit;
-    left: 43px;
-    position: relative;
-    background: transparent;
-    color: rgb(168, 169, 173);
-    font-size: 50px;
-    font-weight: 100;
-    outline: none;
-    border-style: none;
-} 
+
 main {
-    margin-left: 9%;
-    max-width: 87vw;
+    position: relative;
+    top: 6rem;
+    height: 80vh;
+}
+
+.descripcion{
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 50%;
+    height: 100%;
+}
+.descripcion2{
+    flex-direction: row;
+    align-items: flex-start;
+    background-image: linear-gradient(rgb(140, 0, 255),rgb(210, 208, 211));
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    padding: 10px;
+    width: 50%;
+    height: 100%;
+}
+
+.formulacio{
+    display: block;
+}
+
+.span{
+    display: block;
+    color: red;
+    font-family: Courier New;
+    font-size: 30px;
+}
+
+form {
+    display: block;
+    color: red;
+    margin-top: 50px;
+  }
+  
+  input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    border: none;
+    box-shadow: 8px 7px 0px rgba(14, 0, 0, 0.288);
+    box-sizing: border-box;
+  }
+input[type=email]:hover,input[type=password]:hover{
+    color: red;
+    transition: ease-in .4s;
+}
+
+input[type=submit]{
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    font-family: monospace;
+    border-radius: 5px;
+    box-shadow: 5px 4px 0px rgba(14, 0, 0, 0.288);
+    font-size: larger;
+    color: white;
+    background: red;
+    cursor: pointer;
+}
+.forgotten_passw{
+    position: relative;
+    top: 8px;
+    font-weight: 800;
+    font-size: larger;
+    display: block;
+    color: black;
+    font-family: monospace;
+}
+.forgotten_passw:hover{color: red;transition: ease-in .1s;}
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    box-shadow: 5px 4px 0px rgba(14, 0, 0, 0.288);
+    box-sizing: border-box;
+    border: none;
+}
+
+input[type=file],label[for=imagen-perfil]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 5px 4px 0px rgba(14, 0, 0, 0.288);
+    box-sizing: border-box;
+    border: none;
+}
+
+input[type=text]::placeholder{
+    color: rgb(90, 83, 83);
+}
+input[type=text]::placeholder{
+    color: rgb(90, 83, 83);
+}
+input[type=email]::placeholder,input[type=password]::placeholder{
+    color: rgb(59, 57, 57);
+    transition: ease-in .2s;
+}
+
+img{
+    object-fit: cover;
+    scale: 0.7;
+    cursor: pointer;
 }

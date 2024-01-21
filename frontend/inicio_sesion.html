@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelis+ | Películas y series</title>
+    <title>Pelis+ | Login</title>
     <link rel="stylesheet" href="style2.css">
     <link rel="shortcut icon" href="/fotos/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,20 +18,38 @@
             <li class="item6"><i class="fa fas fa-film"></i><span>PELICULAS</span></li>
             <li class="item7"><i class="fa fas fa-tv"></i><span>SERIES</span></li>
         </ul>
-        <li class="item8"><span>Zurita </span><div class="img_content2"><img src="/fotos/perfil_zurita.png" alt="logo" class="perfil_zurita"></div></li>
     </nav>
-    <main>
-        <section>
-            <div class="buscar">
-                <form action="get">
-                    <input onkeyup="leer()" type="search" name="token" id="5" placeholder="buscar">
+    
+<main>
+    <section class="inicio">
+        <div class="descripcion">
+            <div class="formulacio">
+                <form action="" method="post">
+                    <label for="name"></label>
+                    <input type="email" name="Correo Electronico" id="name" placeholder="Correo Electronico">
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password" placeholder="Contraseña">
+                    <input type="submit" value="Login" id="password">
+                    <a class="forgotten_passw" href="http://">Having trouble logging in?</a>
                 </form>
             </div>
-        </section>
-        <section>
-            <ul class="uls">
-            </ul>
-        </section>
+            <img src="/fotos/icon.png" alt="">
+        </div>
+        <div class="descripcion2">
+            <div class="formulacio">
+                <form action="" method="post">
+                    <input type="text" placeholder="Nombre de Usuario" id="nombre">
+                    <input type="password" name="password" id="password" placeholder="Contraseña">
+                    <input type="password" name="password" id="password" placeholder="Confirmar Contraseña">
+                    <input type="email" name="Correo Electronico" id="name" placeholder="Correo Electronico">
+                    <input type="text" placeholder="Fecha de nacimineto">
+                    <label for="imagen-perfil">Imagen de perfil</label>
+                    <input type="file" name="imagen-perfil" id="icon" placeholder="Imagen de perfil">
+                    <input type="submit" value="Register" id="submit">
+                </form>
+            </div>
+        </div>
+    </section>
 </main>
 <script src="/querys/backend/main/index.js"></script>
 </body>
