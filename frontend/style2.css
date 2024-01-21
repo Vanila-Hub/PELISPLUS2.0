@@ -1,0 +1,155 @@
+:root{
+    --bgrd: linear-gradient(rgb(58, 60, 74), rgb(36, 38, 50));
+    --transit: all 150ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s;
+
+}
+
+body{
+    margin: 0;
+    background-color: #181818;
+    color: white;
+    font-family: Avenir-World-for-Disney-Demi,sans-serif;
+    font-size: 15px;
+    letter-spacing: .11px;
+    line-height: 1.4;
+    font-weight: 700;
+    height: 100vh;
+    list-style: none;
+    overflow-x: hidden;
+}
+
+a{color: inherit; text-decoration: none;}
+
+nav
+{
+    position: fixed;
+    overflow: auto;
+    display: flex;
+    top: 0;
+    width: 100vw;
+    background: #05050523;
+    z-index: 2;
+    transition: var(--transit);
+    margin-top: -0px;
+    justify-content: space-between;
+}
+
+
+nav > ul
+{
+    display: grid;
+    list-style: none;
+    grid-template-columns: 90px;
+    grid-template-areas: 
+    'logo inicio busqueda lists originales pelicula series perfil'
+    ;
+    text-align: center;
+    width: 140vh;
+    cursor: pointer;
+}
+nav ul  li:hover{
+    text-decoration: underline;
+    transition: ease-in .5s;
+    text-size-adjust: 20px;
+    height: auto;
+    transition: all 150ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s;
+}
+i{margin-top: 0.5rem;}
+span
+{
+    margin-left: 20px;
+}
+
+.logo
+{
+    width: 50px;
+}
+
+.perfil_zurita
+{
+    max-height: 60px;
+    max-width: 60px;
+    margin-right: 20px;
+}
+.item1{grid-area: logo;width: 13vh;}
+.item2{grid-area: inicio;}
+.item3{grid-area: busqueda;}
+.item4{grid-area: lists;}
+.item5{grid-area: originales;}
+.item6{grid-area: pelicula;}
+.item7{grid-area: series;}
+.item8{display: flex;align-items: center;}
+.item8 > span{
+    margin-right: 20px;
+}
+body > ul
+{
+    list-style: none;
+    height: 55%;
+    width: 1099rem;
+    gap: 30px;
+    display: flex;
+    padding: 0px 3vw;
+    background-color: transparent;
+    transition: all 150ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s !important;
+}
+
+body > ul > li:hover{
+    border: 3.5px rgba(255, 255, 255, 0.637) solid;
+    transition: all 50ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s;
+    cursor: pointer;
+}
+img
+{
+    object-fit: cover;
+}
+
+section > ul{
+    display: grid;
+    list-style: none;
+    row-gap: 20px;
+    height: 100%;
+    column-gap: 32px;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(250px,1fr)
+    );
+    grid-template-rows: repeat(100,45vh);
+    cursor: pointer;
+    padding: 0;
+}
+.busqItem{
+    margin-top: 50px;
+    background: var(--bgrd);
+    transition: var(--transit);
+    border-radius: 10px;
+}
+.busqItem:hover{
+    border: 7px rgba(255, 255, 255, 0.51) solid;
+    cursor: pointer;
+    height: auto;
+    transform: scale(1.05);
+}
+.buscar{
+    background: rgb(75, 78, 90);
+    height: 100px;
+    position: relative;
+    top: 73px;
+    border-radius: 25px;
+}
+.buscar > form > input {
+    height: 10.33vh;
+    width: inherit;
+    left: 43px;
+    position: relative;
+    background: transparent;
+    color: rgb(168, 169, 173);
+    font-size: 50px;
+    font-weight: 100;
+    outline: none;
+    border-style: none;
+} 
+main {
+    margin-left: 9%;
+    max-width: 87vw;
+}
