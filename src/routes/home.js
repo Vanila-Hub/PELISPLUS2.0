@@ -15,10 +15,22 @@ router.get('/style.css',(req,res)=>{
   
     res.sendFile(indexPath);
   });
+//el css2
+router.get('/style2.css',(req,res)=>{
+    const indexPath = path.join('C:\\Users\\user\\Documents\\Juan_Antero\\proyectos\\pelisplus\\frontend\\', 'style2.css');
+  
+    res.sendFile(indexPath);
+  });
 
 //el main
 router.get('/Main.js',(req,res)=>{
     const indexPath = path.join('C:\\Users\\user\\Documents\\Juan_Antero\\proyectos\\pelisplus', 'Main.js');
+  
+    res.sendFile(indexPath);
+  });
+//el main del login
+router.get('/frontend/login.js',(req,res)=>{
+    const indexPath = path.join('C:\\Users\\user\\Documents\\Juan_Antero\\proyectos\\pelisplus\\frontend', 'login.js');
   
     res.sendFile(indexPath);
   });
@@ -41,4 +53,10 @@ router.get('/fotos/icon',(req,res)=>{
   
     res.sendFile(indexPath);
   });
+//htmol de login
+router.get('/login',(req,res)=>{
+  const indexPath = path.join('C:\\Users\\user\\Documents\\Juan_Antero\\proyectos\\pelisplus\\frontend\\', 'inicio_sesion.html');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
 module.exports = router;

@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    edad: {type: Number,required: true},
+    edad: {type: Date,required: true},
     email: {
       type: String,
       required: true
@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema({
     liked_movies: {type:Array},
     saved_series: {type:Array},
     liked_series: {type:Array},
-    liked_genres: {type:Array}
+    liked_genres: {type:Array},
+    icon: {type:String}
   });
 
 const UserModel = mongoose.model('usuarios', userSchema);

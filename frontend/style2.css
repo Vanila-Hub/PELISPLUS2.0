@@ -188,7 +188,7 @@ input[type=email]:hover,input[type=password]:hover{
     transition: ease-in .4s;
 }
 
-input[type=submit]{
+input[type=button]{
     border-radius: 5px;
     padding: 10px;
     border: none;

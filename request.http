@@ -3,16 +3,18 @@ POST http://localhost:2007/pelis-plus/users HTTP/1.1
 Content-Type: application/json
 
 {
-  "nombre": "NIKOLA TESLA",
-  "edad": 30,
-  "email": "ION KONWEY@example.com",
-  "password": "securepassword",
-  "saved_movies": 5,
-  "liked_movies": 8,
-  "saved_series": 3,
-  "liked_series": 6,
-  "liked_genres": 10
+  "nombre": "TUKO",
+  "edad": "1990-01-01",
+  "email": "usuario@example.com",
+  "password": "contraseña",
+  "saved_movies": ["Pelicula1", "Pelicula2"],
+  "liked_movies": ["Pelicula3", "Pelicula4"],
+  "saved_series": ["Serie1", "Serie2"],
+  "liked_series": ["Serie3", "Serie4"],
+  "liked_genres": ["Acción", "Comedia"],
+  "icon": "ruta/al/icono.jpg"
 }
+
 ###
 GET  http://localhost:2007/pelis-plus/users HTTP/1.1
 
@@ -20,4 +22,23 @@ GET  http://localhost:2007/pelis-plus/users HTTP/1.1
 GET  http://localhost:2007/pelis-plus/home HTTP/1.1
 
 ###
-GET  http://localhost:2007/pelis-plus/users:65ac45b001134daf723a67e3 HTTP/1.1
+GET  http://localhost:2007/pelis-plus/users/65ad4e35730235f4cbac5a80 HTTP/1.1
+###
+PUT  http://localhost:2007/pelis-plus/users/65ad4e35730235f4cbac5a80 HTTP/1.1
+Content-Type: application/json
+
+{
+  "nombre": "nono",
+  "edad": "1990-01-01",
+  "email": "usuario@example.com",
+  "password": "contraseña",
+  "saved_movies": ["Pelicula1", "Pelicula2"],
+  "liked_movies": ["Pelicula3", "Pelicula4"],
+  "saved_series": ["Serie1", "Serie2"],
+  "liked_series": ["Serie3", "Serie4"],
+  "liked_genres": ["Acción", "Comedia"],
+  "icon": "ruta/al/icono.jpg"
+}
+
+###
+DELETE   http://localhost:2007/pelis-plus/users/65ad5099730235f4cbac5a83 HTTP/1.1
