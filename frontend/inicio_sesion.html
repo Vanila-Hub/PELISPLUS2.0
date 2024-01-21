@@ -11,7 +11,7 @@
 <body>
     <nav class="nave">
         <ul>
-            <li class="item2"><i class="fa fa-home"></i><span><a href="/index.html">INICIO</a></span></li>
+            <li class="item2"><i class="fa fa-home"></i><span><a href="/pelis-plus/home">INICIO</a></span></li>
             <li class="item3"><i class="fa fas fa-search"></i><span><a href="/querys/busqueda.html">BÚSQUEDA</a></span></li>
             <li class="item4"><i class="fa fas fa-plus"></i><span>MI LISTA</span></li>
             <li class="item5"><i class="fa far fa-star"></i><span>ORIGINALES</span></li>
@@ -27,7 +27,7 @@
                 <form>
                     <input type="email" name="Correo Electronico" id="mail_login" placeholder="Correo Electronico">
                     <input type="password" name="password" id="password_login" placeholder="Contraseña">
-                    <input type="button" value="Login" onclick="loginn(mail_login,password_login)" id="login">
+                    <input type="button" value="Login" id="login">
                     <a class="forgotten_passw" href="http://">Having trouble logging in?</a>
                 </form>
             </div>
@@ -40,11 +40,11 @@
                     
                     <input type="password" name="password" id="password_verify" placeholder="Confirmar Contraseña">
                     <input type="email" name="Correo Electronico" id="mail_new" placeholder="Correo Electronico">
-                    <input type="text" placeholder="Fecha de nacimineto">
+                    <input type="text" placeholder="Fecha de nacimineto" id="edad">
                     <label for="imagen-perfil">Imagen de perfil</label>
                     <input type="file" name="imagen-perfil" id="icon" placeholder="Imagen de perfil">
 
-                    <input type="button" value="Register" id="submit">
+                    <input type="button" value="Register" id="submit" onclick="setUser(nombre,password_new,password_verify,mail_new,edad,icon)">
                 </form>
             </div>
         </div>
