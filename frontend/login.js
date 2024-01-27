@@ -108,7 +108,6 @@ async function LoginUser(userData,password_login){
 
 async function loginSuccesfull(userData){
   setTimeout(()=>{
-    alert("Welcome " + userData.nombre);
     localStorage.setItem('user',JSON.stringify(userData));
     setTimeout(()=>{location.href = "/pelis-plus/home";})
   },100);
