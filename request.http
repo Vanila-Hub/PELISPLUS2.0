@@ -22,8 +22,12 @@ GET  http://localhost:2007/pelis-plus/users HTTP/1.1
 GET  http://localhost:2007/pelis-plus/home HTTP/1.1
 
 ###
-GET  http://localhost:2007/pelis-plus/users/ikcth@1234 HTTP/1.1
+GET  http://localhost:2007/pelis-plus/users/65b4a17912c35871f804fa01 HTTP/1.1
 ###
+
+###
+GET  http://localhost:2007/pelis-plus/user/franky
+
 PUT  http://localhost:2007/pelis-plus/users/65ad4e35730235f4cbac5a80 HTTP/1.1
 Content-Type: application/json
 
@@ -41,4 +45,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE   http://localhost:2007/pelis-plus/users/65ad780216c2988690e58393 HTTP/1.1
+DELETE   http://localhost:2007/pelis-plus/users/65b49b760dffe1ed0e6a4332 HTTP/1.1

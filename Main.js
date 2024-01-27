@@ -1,3 +1,4 @@
+
 let titulo;
 let backrdoundIMG = '';
 let calificaciones = {
@@ -145,3 +146,12 @@ function consulta(query) {
   //window.open(idPELI,"_self")
 }
 
+const sesion_activa = document.getElementById('userTXT');
+const getUser = JSON.parse(localStorage.getItem('user'));
+
+if(getUser !== null){
+  sesion_activa.innerHTML = 'Welcome, ' + getUser.nombre;
+  sesion_activa.href = "/pelis-plus/home"
+}
+localStorage.removeItem('user');
+console.log(getUser);
