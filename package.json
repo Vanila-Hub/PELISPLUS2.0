@@ -114,8 +114,8 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js"
+    "start": "node ./src/pelis.js",
+    "dev": "nodemon ./src/pelis.js"
   },
   "author": "",
   "license": "ISC",

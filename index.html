@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +9,38 @@
     <link rel="shortcut icon" href="http://localhost:2007/pelis-plus/fotos/icon" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <nav class="nave">
         <ul>
             <li class="item2"><i class="fa fa-home"></i><span><a href="/index.html">INICIO</a></span></li>
-            <li class="item3"><i class="fa fas fa-search"></i><span><a href="/querys/busqueda.html">BÚSQUEDA</a></span></li>
+            <li class="item3"><i class="fa fas fa-search"></i><span><a href="/querys/busqueda.html">BÚSQUEDA</a></span>
+            </li>
             <li class="item4"><i class="fa fas fa-plus"></i><span>MI LISTA</span></li>
             <li class="item5"><i class="fa far fa-star"></i><span>ORIGINALES</span></li>
             <li class="item6"><i class="fa fas fa-film"></i><span>PELICULAS</span></li>
             <li class="item7"><i class="fa fas fa-tv"></i><span>SERIES</span></li>
         </ul>
-        <li class="item9"><span ><a href="http://localhost:2007/pelis-plus/login" id="userTXT">Iniciar Sesion</a></span></li>
+        <li class="item9"><span><a href="http://localhost:2007/pelis-plus/login" id="userTXT">Iniciar Sesion</a></span>
+        </li>
         <!-- <li class="item8"><div class="img_content2"><img src="./fotos/perfil_zurita.png" alt="logo" class="perfil_zurita"></div></li>-->
     </nav>
     <br class="saltoCarro">
     <span class="bodySPN">Trending today</span>
     <ul id="listwrap">
+        <li class="listwrap">
+            <div><img class="wallp" src="https://image.tmdb.org/t/p/original///jXJxMcVoEuXzym3vFnjqDW4ifo6.jpg" alt="">
+                <div class="padre">
+                    <span class="sinopsis">Black Manta, still driven by the need to avenge his father's death and
+                        wielding the power of the mythic Black Trident, will stop at nothing to take Aquaman down once
+                        and for all. To defeat him, Aquaman must turn to his imprisoned brother Orm, the former King of
+                        Atlantis, to forge an unlikely alliance in order to save the world from irreversible
+                        destruction.)<span class="rating" id="rating"
+                            style=" border: 5px yellow solid;">68%</span></span>
+                    <span class="overvew">Aquaman and the Lost Kingdom (2023)</span>
+                </div>
+            </div>
+        </li>
     </ul>
     <br class="saltoCarro">
     <main>
@@ -63,7 +80,11 @@
         <span class="SPN">Now Playing</span>
         <section class="poularS">
             <ul class="poularM" id="Now_Playing">
-
+                
+                <li class="popIMG1" id="976893"><div onclick="consulta(976893)">
+                    <img class="imgPOP" src="https://image.tmdb.org/t/p/original///sXx2W6l2Cy2Bi3WXwFDTqL5NkPb.jpg" alt="">
+                    <span class="tittle">Perfect Days</span><span class="rating2" id="rating2" style=" border: 5px limegreen solid;">77% </span>
+                    </div></li>
             </ul>
         </section>
 
@@ -73,7 +94,14 @@
         <span class="SPN">Popular</span>
         <section class="poularS">
             <ul class="poularM" id="Popular">
-
+                <li class="popIMG1" id="976893">
+                    <div onclick="consulta(976893)">
+                        <img class="imgPOP" src="https://image.tmdb.org/t/p/original///sXx2W6l2Cy2Bi3WXwFDTqL5NkPb.jpg"
+                            alt="">
+                        <span class="tittle">Perfect Days</span><span class="rating2" id="rating2"
+                            style=" border: 5px limegreen solid;">77% </span>
+                    </div>
+                </li>
             </ul>
         </section>
 
@@ -81,7 +109,14 @@
         <span class="SPN">Top Rated</span>
         <section class="poularS">
             <ul class="poularM" id="Top_Rated">
-
+                <li class="popIMG1" id="976893">
+                    <div onclick="consulta(976893)">
+                        <img class="imgPOP" src="https://image.tmdb.org/t/p/original///sXx2W6l2Cy2Bi3WXwFDTqL5NkPb.jpg"
+                            alt="">
+                        <span class="tittle">Perfect Days</span><span class="rating2" id="rating2"
+                            style=" border: 5px limegreen solid;">77% </span>
+                    </div>
+                </li>
             </ul>
         </section>
 
@@ -89,7 +124,14 @@
         <span class="SPN">Tv Shows</span>
         <section class="poularS">
             <ul class="poularM" id="Tv_Shows">
-
+                <li class="popIMG1" id="976893">
+                    <div onclick="consulta(976893)">
+                        <img class="imgPOP" src="https://image.tmdb.org/t/p/original///sXx2W6l2Cy2Bi3WXwFDTqL5NkPb.jpg"
+                            alt="">
+                        <span class="tittle">Perfect Days</span><span class="rating2" id="rating2"
+                            style=" border: 5px limegreen solid;">77% </span>
+                    </div>
+                </li>
             </ul>
         </section>
 

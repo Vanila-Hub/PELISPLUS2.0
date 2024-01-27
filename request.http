@@ -1,25 +1,25 @@
 ###
-POST http://localhost:2007/pelis-plus/users HTTP/1.1
+POST http://localhost:2007/pelis-plus/users/upcoming/add HTTP/1.1
 Content-Type: application/json
 
 {
-  "nombre": "TUKO",
-  "edad": "1990-01-01",
-  "email": "usuario@example.com",
-  "password": "contraseña",
-  "saved_movies": ["Pelicula1", "Pelicula2"],
-  "liked_movies": ["Pelicula3", "Pelicula4"],
-  "saved_series": ["Serie1", "Serie2"],
-  "liked_series": ["Serie3", "Serie4"],
-  "liked_genres": ["Acción", "Comedia"],
-  "icon": "ruta/al/icono.jpg"
+  "id": 912520,
+  "titulo": "The Nature of Love",
+  "año": "2023-09-22",
+  "sinopsis": "Sophia is a philosophy professor in Montreal and has lived as a couple with Xavier for 10 years. Sylvain is a carpenter in the Laurentians and must renovate their country house. When Sophia meets Sylvain for the first time, it’s love at first sight. Opposites attract, but can it last?",
+  "poster": "/jRaOFDvmrrLmBaCKemQ8Hq9wp5o.jpg",
+  "wallpaper": "/qMDPV2FLZfacFgalgqaThMAj47Y.jpg",
+  "genre": [10749, 35, 18],
+  "duracion": 0,
+  "valoracion": 76.37,
+  "trailer": null
 }
 
 ###
 GET  http://localhost:2007/pelis-plus/users HTTP/1.1
 
 ###
-GET  http://localhost:2007/pelis-plus/home HTTP/1.1
+GET  http://localhost:2007/pelis-plus/movies/upcoming HTTP/1.1
 
 ###
 GET  http://localhost:2007/pelis-plus/users/65b4a17912c35871f804fa01 HTTP/1.1
@@ -27,7 +27,7 @@ GET  http://localhost:2007/pelis-plus/users/65b4a17912c35871f804fa01 HTTP/1.1
 
 ###
 GET  http://localhost:2007/pelis-plus/user/franky
-
+###
 PUT  http://localhost:2007/pelis-plus/users/65ad4e35730235f4cbac5a80 HTTP/1.1
 Content-Type: application/json
 
@@ -45,4 +45,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE   http://localhost:2007/pelis-plus/users/65b49b760dffe1ed0e6a4332 HTTP/1.1
+DELETE   http://localhost:2007/pelis-plus/users/upcoming/delete HTTP/1.1

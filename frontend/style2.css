@@ -26,6 +26,7 @@ nav
     overflow: auto;
     display: flex;
     top: 0;
+    height: 7%;
     width: 100vw;
     background: #05050523;
     z-index: 2;
