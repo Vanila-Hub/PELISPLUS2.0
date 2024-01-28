@@ -213,7 +213,7 @@ let creatElement = {
   imagen: '',
   wallpaper: ''
 };
-
+const esquemas = ['nowplayings','trending','upcoming','toprated','popular']
 let urls = [
   'http://localhost:2007/pelis-plus/movies/trending',
   'http://localhost:2007/pelis-plus/movies/upcoming',
@@ -381,3 +381,24 @@ function app(modelo,padre) {
       break;
   }
 }
+async function consulta(id) {
+  for (let i = 0; i < esquemas.length; i++) {
+    try {
+      const pregunta = await fetch(`http://localhost:2007/pelis-plus/movie/${esquemas[i]}/`+id,{
+        method:'GET',
+        headers: {
+          'Content-Type': 'aplication/json',
+        }
+      })
+      const res = await pregunta.json();
+      console.log(res);
+      if (res!=null) {
+        localStorage.setItem('id',id);
+        location.href = "/frontend/user_profile/profile.html";
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+

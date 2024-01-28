@@ -21,7 +21,7 @@ GET  http://localhost:2007/pelis-plus/users HTTP/1.1
 ###
 GET  http://localhost:2007/pelis-plus/movies/nowplayin HTTP/1.1
 ###
-GET  http://localhost:2007/pelis-plus/movie/1200334 HTTP/1.1
+GET  http://localhost:2007/pelis-plus/movie/nowplayings/1200334 HTTP/1.1
 
 ###
 GET  http://localhost:2007/pelis-plus/users/65b4a17912c35871f804fa01 HTTP/1.1

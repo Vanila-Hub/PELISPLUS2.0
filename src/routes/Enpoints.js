@@ -143,9 +143,10 @@ router.post('/users/trending/add',(req,res)=>{
 });
 
 /*PARA MOVIES GETTES*/ 
-router.get('/movie/:id',(req,res)=>{
+router.get('/movie/:esquema/:id',(req,res)=>{
   const id = req.params.id;  
-  const peliSchema = mongoose.model('nowplayings', movies_squema);
+  const esquema = req.params.esquema;  
+  const peliSchema = mongoose.model(esquema, movies_squema);
   peliSchema
       .findOne({id})
       .then((data)=>res.json(data))
