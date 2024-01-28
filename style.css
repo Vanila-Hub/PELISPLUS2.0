@@ -126,7 +126,7 @@ span
 body > ul
 {
     list-style: none;
-    height: 75%;
+    height: 65%;
     width: 100%;
     gap: 32px;
     display: flex;
