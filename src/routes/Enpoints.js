@@ -12,14 +12,12 @@ router.post('/users',(req,res)=>{
 });
 
 //get user
-router.get('/movies/nowplayin/',(req,res)=>{
+router.get('/users/nowplayin/',(req,res)=>{
 user_squema
     .find()
     .then((data)=>res.json(data))
     .catch((err)=>res.json({message: err}))
 });
-
-
 
 //coger 1 USUARIO
 router.get('/users/:id',(req,res)=>{
@@ -95,7 +93,15 @@ router.delete('/users/upcoming/delete',(req,res)=>{
         .deleteMany({})
         .then((data)=>res.json(data))
         .catch((err)=>res.json({message: err}))
-      });
+});
+router.delete('/users/trending/delete',(req,res)=>{
+  const peliSchema = mongoose.model('trending', movies_squema);
+  peliSchema
+        .deleteMany({})
+        .then((data)=>res.json(data))
+        .catch((err)=>res.json({message: err}))
+});
+
       //crear naow playing
       router.post('/users/nowplayin/add',(req,res)=>{
         const peliSchema = mongoose.model('nowplayings', movies_squema);
@@ -128,8 +134,24 @@ router.post('/users/upcoming/add',(req,res)=>{
   .then((data)=>res.json(data))
   .catch((err)=>res.json({message: err}))
 });
+router.post('/users/trending/add',(req,res)=>{
+  const peliSchema = mongoose.model('trending', movies_squema);
+  const peli =   peliSchema (req.body);
+  peli.save()
+  .then((data)=>res.json(data))
+  .catch((err)=>res.json({message: err}))
+});
 
 /*PARA MOVIES GETTES*/ 
+router.get('/movie/:id',(req,res)=>{
+  const id = req.params.id;  
+  const peliSchema = mongoose.model('nowplayings', movies_squema);
+  peliSchema
+      .findOne({id})
+      .then((data)=>res.json(data))
+      .catch((err)=>res.json({message: err}))
+  });
+
 router.get('/movies/nowplayin/',(req,res)=>{
   const peliSchema = mongoose.model('nowplayings', movies_squema);
   peliSchema
@@ -153,6 +175,13 @@ router.get('/movies/toprated/',(req,res)=>{
   });
 router.get('/movies/upcoming/',(req,res)=>{
   const peliSchema = mongoose.model('upcomings', movies_squema);
+  peliSchema
+      .find()
+      .then((data)=>res.json(data))
+      .catch((err)=>res.json({message: err}))
+  });
+router.get('/movies/trending/',(req,res)=>{
+  const peliSchema = mongoose.model('trending', movies_squema);
   peliSchema
       .find()
       .then((data)=>res.json(data))

@@ -133,7 +133,8 @@ function crearLista(nodoPadre,Arch_json,index) {
         creatElement.elemento.className = "popIMG1";
         IMAGENTAG = `<div onclick="consulta(${id=Arch_json.results[index].id})">
         <img class="imgPOP" src="" alt="">
-        <span class="tittle">${titulo}</span><span class="rating2" id="rating2" style = " border: 5px ${calificaciones.color} solid;">${(Arch_json.results[index].vote_average*100/10).toString().substring(0,2)}% </span>
+        <span class="tittle">${titulo}</span>
+        <span class="rating2" id="rating2" style = " border: 5px ${calificaciones.color} solid;">${(Arch_json.results[index].vote_average*100/10).toString().substring(0,2)}% </span>
         </div>`;
         creatElement.elemento.id = id=Arch_json.results[index].id;
         creatElement.elemento.innerHTML = IMAGENTAG;
