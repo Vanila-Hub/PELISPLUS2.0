@@ -376,7 +376,6 @@ function app(modelo,padre) {
       padre.appendChild(creatElement.elemento);
       creatElement.elemento.children[0].children[0].src = imagen_url;
       break;
-  
     default:
       break;
   }
