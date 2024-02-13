@@ -157,7 +157,7 @@ setInterval(function () {
   erraseAll(links.upcoming);
   alert('snuicth');
   ubdateBBDD();
-},60 * 1000);
+},60 * 900000);
 
 async function erraseAll(columns) {
   try {
@@ -183,7 +183,7 @@ const sesion_activa = document.getElementById('userTXT');
 const getUser = JSON.parse(localStorage.getItem('user'));
 
 if (getUser !== null) {
-  sesion_activa.innerHTML = 'Welcome, ' + getUser.nombre;
+  sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
   sesion_activa.href = "/pelis-plus/home"
 }
 localStorage.removeItem('user');
