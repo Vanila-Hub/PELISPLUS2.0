@@ -23,11 +23,11 @@ let pelidcula =
   trailer: ""
 }
 let links = {
-  'nowplaying': 'http://localhost:2007/pelis-plus/users/nowplayin/',
-  'popular': 'http://localhost:2007/pelis-plus/users/popular/',
-  'toprated': 'http://localhost:2007/pelis-plus/users/toprated/',
-  'trending': 'http://localhost:2007/pelis-plus/users/trending/',
-  'upcoming': 'http://localhost:2007/pelis-plus/users/upcoming/'
+  'nowplaying': 'http://localhost:2007/pelis-plus/movies/nowplayin/',
+  'popular': 'http://localhost:2007/pelis-plus/movies/popular/',
+  'toprated': 'http://localhost:2007/pelis-plus/movies/toprated/',
+  'trending': 'http://localhost:2007/pelis-plus/movies/trending/',
+  'upcoming': 'http://localhost:2007/pelis-plus/movies/upcoming/'
 };
 
 let path = 'https://image.tmdb.org/t/p/original//';
@@ -36,7 +36,7 @@ const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjk1NWEyMzU3NmE4NzdiNGI0NDA4NjdiZDdmYTNkNSIsInN1YiI6IjY1NzA5MmY5YzhhMmQ0MDBlMTBiZmI5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WQj2s2CEnp2kYdF1g3k6xnocEjxSMyfbBvZWI0nuj0c'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjk1NWEyMzU3NmE4NzdiNGI0NDA4NjdiZDdmYTNkNSIsInN1YiI6IjY1NzA5MmY5YzhhMmQ0MDBlMTBiZmI5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WQj2s2CEnp2kYdF1g3k6xnocEjxSMyfbBvZWI0nuj0c' 
   }
 };
 async function ubdateBBDD() {
@@ -155,8 +155,9 @@ setInterval(function () {
   erraseAll(links.popular);
   erraseAll(links.trending);
   erraseAll(links.upcoming);
+  alert('snuicth');
   ubdateBBDD();
-}, 30 * 60 * 1000);
+},60 * 1000);
 
 async function erraseAll(columns) {
   try {
@@ -167,14 +168,11 @@ async function erraseAll(columns) {
         'Content-Type': 'application/json',
       },
     });
-
     // Parse the response JSON
     const data = await response.json();
-
     // Log the server response
     console.log(data);
     console.log('row delete' + columns);
-
   } catch (error) {
     // Handle errors: log the error
     console.error('Error:', error);

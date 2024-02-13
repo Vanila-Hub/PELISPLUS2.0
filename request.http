@@ -16,12 +16,12 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:2007/pelis-plus/users HTTP/1.1
+GET  http://localhost:2007/pelis-plus/users/ HTTP/1.1
 
 ###
-GET  http://localhost:2007/pelis-plus/movies/nowplayin HTTP/1.1
+GET  http://localhost:2007/pelis-plus/movies/users HTTP/1.1
 ###
-GET  http://localhost:2007/pelis-plus/movie/nowplayings/1200334 HTTP/1.1
+GET  http://localhost:2007/pelis-plus/movies/nowplayin/ HTTP/1.1
 
 ###
 GET  http://localhost:2007/pelis-plus/users/65b4a17912c35871f804fa01 HTTP/1.1
@@ -45,6 +45,23 @@ Content-Type: application/json
   "liked_genres": ["Acción", "Comedia"],
   "icon": "ruta/al/icono.jpg"
 }
+###
+POST  http://localhost:2007/pelis-plus/movies/nowplayin/add HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "titulo": "Pulp Fiction",
+  "año": "1994",
+  "sinopsis": "La vida de varios criminales se entrelaza en Los Ángeles.",
+  "poster": "https://example.com/pulp-fiction-poster.jpg",
+  "wallpaper": "https://example.com/pulp-fiction-wallpaper.jpg",
+  "genre": ["Crime", "Drama"],
+  "duracion": 154,
+  "valoracion": 9.0,
+  "trailer": "https://example.com/pulp-fiction-trailer"
+}
+
 
 ###
-DELETE   http://localhost:2007/pelis-plus/users/trending/delete HTTP/1.1
+DELETE   http://localhost:2007/pelis-plus/movies/nowplayin/delete HTTP/1.1

@@ -12,7 +12,7 @@ router.post('/users',(req,res)=>{
 });
 
 //get user
-router.get('/users/nowplayin/',(req,res)=>{
+router.get('/users',(req,res)=>{
 user_squema
     .find()
     .then((data)=>res.json(data))
@@ -54,7 +54,7 @@ router.put('/users/:id',(req,res)=>{
   .catch((err)=>res.json({message: err}))
 });
 
-//delete 1 USUARIO
+//delete * USUARIO
 router.delete('/users/delete/',(req,res)=>{
   const id = req.params.id; 
   user_squema
@@ -64,14 +64,14 @@ router.delete('/users/delete/',(req,res)=>{
 });
 
 //2 delete movie
-router.delete('/users/nowplayin/delete',(req,res)=>{
+router.delete('/movies/nowplayin/delete',(req,res)=>{
   const peliSchema = mongoose.model('nowplayings', movies_squema);
   peliSchema
   .deleteMany({})
   .then((data)=>res.json(data))
   .catch((err)=>res.json({message: err}))
 });
-router.delete('/users/popular/delete',(req,res)=>{
+router.delete('/movies/popular/delete',(req,res)=>{
   const peliSchema = mongoose.model('populars', movies_squema);
   peliSchema
   .deleteMany({})
@@ -79,7 +79,7 @@ router.delete('/users/popular/delete',(req,res)=>{
   .catch((err)=>res.json({message: err}))
 });
 //delete movie
-router.delete('/users/toprated/delete',(req,res)=>{
+router.delete('/movies/toprated/delete',(req,res)=>{
   const peliSchema = mongoose.model('toprateds', movies_squema);
   peliSchema
   .deleteMany({})
@@ -87,14 +87,14 @@ router.delete('/users/toprated/delete',(req,res)=>{
   .catch((err)=>res.json({message: err}))
 });
 //delete movie
-router.delete('/users/upcoming/delete',(req,res)=>{
+router.delete('/movies/upcoming/delete',(req,res)=>{
   const peliSchema = mongoose.model('upcomings', movies_squema);
   peliSchema
         .deleteMany({})
         .then((data)=>res.json(data))
         .catch((err)=>res.json({message: err}))
 });
-router.delete('/users/trending/delete',(req,res)=>{
+router.delete('/movies/trending/delete',(req,res)=>{
   const peliSchema = mongoose.model('trending', movies_squema);
   peliSchema
         .deleteMany({})
@@ -103,15 +103,15 @@ router.delete('/users/trending/delete',(req,res)=>{
 });
 
       //crear naow playing
-      router.post('/users/nowplayin/add',(req,res)=>{
+      router.post('/movies/nowplayin/add',(req,res)=>{
         const peliSchema = mongoose.model('nowplayings', movies_squema);
-        const peli =   peliSchema (req.body);
+        const peli = peliSchema (req.body);
         peli.save()
         .then((data)=>res.json(data))
         .catch((err)=>res.json({message: err}))
       });
       //crear naow popular
-      router.post('/users/popular/add',(req,res)=>{
+      router.post('/movies/popular/add',(req,res)=>{
         const peliSchema = mongoose.model('populars', movies_squema);
         const peli =   peliSchema (req.body);
         peli.save()
@@ -119,7 +119,7 @@ router.delete('/users/trending/delete',(req,res)=>{
         .catch((err)=>res.json({message: err}))
       });
       //crear naow toprated
-      router.post('/users/toprated/add',(req,res)=>{
+      router.post('/movies/toprated/add',(req,res)=>{
         const peliSchema = mongoose.model('toprateds', movies_squema);
   const peli =   peliSchema (req.body);
   peli.save()
@@ -127,14 +127,14 @@ router.delete('/users/trending/delete',(req,res)=>{
   .catch((err)=>res.json({message: err}))
 });
 //crear naow upcomin
-router.post('/users/upcoming/add',(req,res)=>{
+router.post('/movies/upcoming/add',(req,res)=>{
   const peliSchema = mongoose.model('upcomings', movies_squema);
   const peli =   peliSchema (req.body);
   peli.save()
   .then((data)=>res.json(data))
   .catch((err)=>res.json({message: err}))
 });
-router.post('/users/trending/add',(req,res)=>{
+router.post('/movies/trending/add',(req,res)=>{
   const peliSchema = mongoose.model('trending', movies_squema);
   const peli =   peliSchema (req.body);
   peli.save()
@@ -143,15 +143,15 @@ router.post('/users/trending/add',(req,res)=>{
 });
 
 /*PARA MOVIES GETTES*/ 
-router.get('/movie/:esquema/:id',(req,res)=>{
-  const id = req.params.id;  
-  const esquema = req.params.esquema;  
-  const peliSchema = mongoose.model(esquema, movies_squema);
-  peliSchema
-      .findOne({id})
-      .then((data)=>res.json(data))
-      .catch((err)=>res.json({message: err}))
-  });
+// router.get('/movie/:esquema/:id',(req,res)=>{
+//   const id = req.params.id;  
+//   const esquema = req.params.esquema;  
+//   const peliSchema = mongoose.model(esquema, movies_squema);
+//   peliSchema
+//       .findOne({id})
+//       .then((data)=>res.json(data))
+//       .catch((err)=>res.json({message: err}))
+//   });
 
 router.get('/movies/nowplayin/',(req,res)=>{
   const peliSchema = mongoose.model('nowplayings', movies_squema);
