@@ -15,8 +15,9 @@ Content-Type: application/json
   "trailer": null
 }
 
+
 ###
-GET  http://localhost:2007/pelis-plus/users/ HTTP/1.1
+GET  http://localhost:2007/pelis-plus/user_profile/profile HTTP/1.1
 
 ###
 GET  http://localhost:2007/pelis-plus/movies/users HTTP/1.1

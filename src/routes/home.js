@@ -59,4 +59,16 @@ router.get('/login',(req,res)=>{
   //res.send("te oigo");
   res.sendFile(indexPath);
 });
+/*html  mi lista */
+router.get('user_profile/profile',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'frontend','user_profile' ,'profile.html');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+/*css  mi lista */
+router.get('user_profile/style',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'frontend', 'style.css');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
 module.exports = router;

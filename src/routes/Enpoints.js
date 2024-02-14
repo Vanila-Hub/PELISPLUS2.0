@@ -142,17 +142,6 @@ router.post('/movies/trending/add',(req,res)=>{
   .catch((err)=>res.json({message: err}))
 });
 
-/*PARA MOVIES GETTES*/ 
-// router.get('/movie/:esquema/:id',(req,res)=>{
-//   const id = req.params.id;  
-//   const esquema = req.params.esquema;  
-//   const peliSchema = mongoose.model(esquema, movies_squema);
-//   peliSchema
-//       .findOne({id})
-//       .then((data)=>res.json(data))
-//       .catch((err)=>res.json({message: err}))
-//   });
-
 router.get('/movies/nowplayin/',(req,res)=>{
   const peliSchema = mongoose.model('nowplayings', movies_squema);
   peliSchema

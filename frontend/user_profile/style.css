@@ -222,3 +222,45 @@ div{
     margin: -58% 0%;
     background: linear-gradient(to bottom,rgba(255,255,255,0)0,#000000 100%);
 }
+h1{
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 50px;
+    text-align: center;
+}
+.miList{
+    background-color: inherit;
+    width: 90vw;
+    position: relative;
+    top: 7%;
+    left: 5%;
+}
+.list{
+    display: grid;
+    list-style: none;
+    row-gap: 20px;
+    height: 100%;
+    column-gap: 32px;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(250px,1fr)
+    );
+    grid-template-rows: repeat(100,45vh);
+    cursor: pointer;
+    padding: 0;
+    background-color: inherit;
+}
+.li{
+    list-style: none;
+    background-color: gold;
+    border-radius: 8px;
+}
+.item9{
+    margin-right: 20px;
+    align-self: center;
+    background-color: var(--bgrd);
+    padding: 20px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: 700;
+}
