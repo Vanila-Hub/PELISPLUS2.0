@@ -245,13 +245,14 @@ h1{
         auto-fill,
         minmax(250px,1fr)
     );
-    grid-template-rows: repeat(100,45vh);
+    grid-template-rows: repeat(auto-fill,minmax(400px,1fr));
     cursor: pointer;
     padding: 0;
     background-color: inherit;
 }
 .li{
     list-style: none;
+    height: 45vh;
     background-color: gold;
     border-radius: 8px;
 }

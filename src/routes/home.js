@@ -5,7 +5,6 @@ const path = require('path');
 //el html
 router.get('/home',(req,res)=>{
   const indexPath = path.join(__dirname, '..', '..', 'index.html');
-
   res.sendFile(indexPath);
 });
 
@@ -68,6 +67,19 @@ router.get('/profile',(req,res)=>{
 /*css  mi lista */
 router.get('/style',(req,res)=>{
   const indexPath = path.join(__dirname, '..', '..', 'frontend','user_profile', 'style3.css');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+
+/*html  mi lista */
+router.get('/search',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'querys','busqueda.html');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+/*html  mi lista */
+router.get('/search-style',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'querys','style2.css');
   //res.send("te oigo");
   res.sendFile(indexPath);
 });
