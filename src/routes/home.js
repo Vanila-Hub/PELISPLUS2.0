@@ -90,4 +90,40 @@ router.get('/js',(req,res)=>{
   //res.send("te oigo");
   res.sendFile(indexPath);
 });
+
+/*js  mi ver */
+router.get('/verjs',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..',  'ver', 'scrip.js');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+/*js  mi ver */
+router.get('/trailerjs',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..',  'ver', 'trailer.js');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+/*js  mi ver */
+router.get('/vercss',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'ver','ver.css');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+/*js  mi ver */
+router.get('/movies/ver/:id',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'ver', 'ver.html');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+/*js  mi vertrailer */
+router.get('/movies/trailer',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'ver', 'trailer.html');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
+router.get('/consultaPELI.json',(req,res)=>{
+  const indexPath = path.join(__dirname, '..', '..', 'querys', 'consultaPELI.js');
+  //res.send("te oigo");
+  res.sendFile(indexPath);
+});
 module.exports = router;

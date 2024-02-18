@@ -1,5 +1,5 @@
 ###
-POST http://localhost:2007/pelis-plus/users/trending/add HTTP/1.1
+POST http://localhost:2007/pelis-plus/movies/trending/add HTTP/1.1
 Content-Type: application/json
 
 {
@@ -20,18 +20,18 @@ Content-Type: application/json
 GET  http://localhost:2007/pelis-plus/style3 HTTP/1.1
 
 ###
-GET  http://localhost:2007/pelis-plus/movies/users HTTP/1.1
+GET  http://localhost:2007/pelis-plus/movies/trending HTTP/1.1
 ###
-GET  http://localhost:2007/pelis-plus/movies/nowplayin/ HTTP/1.1
+GET  http://localhost:2007/pelis-plus/movies/trailer HTTP/1.1
 
 ###
-GET  http://localhost:2007/pelis-plus/users/65b4a17912c35871f804fa01 HTTP/1.1
+GET  http://localhost:2007/pelis-plus/users/ HTTP/1.1
 ###
 
 ###
 GET  http://localhost:2007/pelis-plus/user/franky
 ###
-PUT  http://localhost:2007/pelis-plus/users/65ad4e35730235f4cbac5a80 HTTP/1.1
+PUT  http://localhost:2007/pelis-plus/users/65b52bb72206f6089571caad HTTP/1.1
 Content-Type: application/json
 
 {

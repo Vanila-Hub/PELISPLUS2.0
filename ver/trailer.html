@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelis+ | Search</title>
-    <link rel="stylesheet" href="http://localhost:2007/pelis-plus/search-style">
+    <title>Ver Dune | Pelis+</title>
+    <link rel="stylesheet" href="http://localhost:2007/pelis-plus/vercss">
     <link rel="shortcut icon" href="http://localhost:2007/pelis-plus/fotos/icon" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -20,17 +21,11 @@
         </ul>
         <li class="item9"><span><a href="http://localhost:2007/pelis-plus/login" id="userTXT">Iniciar Sesion</a></span>
     </nav>
-    <main>
-        <section>
-            <div class="buscar">
-                <input onkeyup="leer(event)" type="search" name="token" id="input" placeholder="buscar">
-            </div>
+
+    <body>
+        <section class="miList">
+            <iframe id="iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </section>
-        <section class="miList" >
-            <ul class="list" id="miList">
-            </ul>
-        </section>
-</main>
-<script src="consultaPELI.json"></script>
-</body>
+    </body>
+<script src="http://localhost:2007/pelis-plus/trailerjs"></script>
 </html>

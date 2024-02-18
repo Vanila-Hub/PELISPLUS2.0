@@ -157,7 +157,7 @@ setInterval(function () {
   erraseAll(links.upcoming);
   alert('snuicth');
   ubdateBBDD();
-},60 * 900000);
+},60 * 9000);
 
 async function erraseAll(columns) {
   try {
@@ -186,7 +186,7 @@ if (getUser !== null) {
   sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
   sesion_activa.href = "/pelis-plus/home"
 }
-localStorage.removeItem('user');
+//localStorage.removeItem('user');
 console.log(getUser);
 
 
@@ -266,7 +266,7 @@ function app(modelo,padre) {
         calificaciones.color = "limegreen";
       }
       IMAGENTAG = 
-      `<div><img class="wallp" src="" alt="">
+      `<div><img class="wallp" src="" alt="" onclick="consulta(${id=modelo.id})">
       <div class="padre">
       <span class="sinopsis">${modelo.sinopsis})<span class="rating" id="rating" style = " border: 5px ${calificaciones.color} solid;">${(modelo.valoracion).toString().substring(0,2)}%</span></span>
       <span class="overvew" >${modelo.titulo} (${modelo.año.substring(0,4)})</span>`
@@ -381,17 +381,19 @@ function app(modelo,padre) {
 async function consulta(id) {
   for (let i = 0; i < esquemas.length; i++) {
     try {
-      const pregunta = await fetch(`http://localhost:2007/pelis-plus/movie/${esquemas[i]}/`+id,{
+      const pregunta = await fetch(`http://localhost:2007/pelis-plus/movies/${esquemas[i]}/`+id,{
         method:'GET',
         headers: {
           'Content-Type': 'aplication/json',
         }
       })
       const res = await pregunta.json();
-      console.log(res);
-      if (res!=null) {
+      console.log(res.message);
+      if (res!=='Movie not found') {
+        console.log("noino");
         localStorage.setItem('id',id);
-        location.href = "/frontend/user_profile/profile.html";
+        localStorage.setItem('root',"yes");
+       location.href = "http://localhost:2007/pelis-plus/movies/ver/"+id;
       }
     } catch (error) {
       console.log(error);

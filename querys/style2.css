@@ -82,6 +82,16 @@ span
 .item8 > span{
     margin-right: 20px;
 }
+.item9{
+    margin-right: 20px;
+    align-self: center;
+    background-color: var(--bgrd);
+    padding: 20px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: 700;
+}
+
 body > ul
 {
     list-style: none;
@@ -137,7 +147,7 @@ section > ul{
     top: 73px;
     border-radius: 25px;
 }
-.buscar > form > input {
+.buscar > input {
     height: 10.33vh;
     width: inherit;
     left: 43px;
@@ -152,4 +162,67 @@ section > ul{
 main {
     margin-left: 9%;
     max-width: 87vw;
+}
+
+div{
+    width: inherit;
+    height: 100%;
+}
+.padre{
+    text-align: justify;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 30px;
+    position: relative;
+    font-family: inherit;
+    color: rgb(255, 255, 255);
+    background: transparent;
+    box-shadow: none;
+    transition: ease-in .2s;
+    margin: -58% 0%;
+    background: linear-gradient(to bottom,rgba(255,255,255,0)0,#000000 100%);
+}
+
+.miList{
+    background-color: inherit;
+    width: 86.8vw;
+    margin: 119px 0;
+    position: relative;
+}
+.imgPOP{
+    height: 100%;
+    width: -webkit-fill-available;
+    border-radius: 8px;
+}
+.imgPOP:hover{
+    cursor: pointer;
+    border: 7px rgba(252, 7, 7, 0.51) solid;
+    border-radius: 8px;
+}
+.li:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: var(--transit);
+}
+.list{
+    display: grid;
+    list-style: none;
+    row-gap: 20px;
+    height: 100%;
+    column-gap: 32px;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(250px,1fr)
+    );
+    grid-template-rows: repeat(auto-fit,minmax(400px,1fr));
+    cursor: pointer;
+    padding: 0;
+    background-color: inherit;
+}
+.li{
+    list-style: none;
+    height: 45vh;
+    background-color: inherit;
+    border-radius: 8px;
+    transition: all 50ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s;
 }

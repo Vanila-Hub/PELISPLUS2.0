@@ -178,5 +178,92 @@ router.get('/movies/trending/',(req,res)=>{
       .catch((err)=>res.json({message: err}))
   });
 
+  //coger 1 peli
+     
+    router.get('/movies/nowplayings/:id',(req,res)=>{
+      const peliSchema = mongoose.model('nowplayings', movies_squema);
+      peliSchema
+      const id_movie = req.params.id;
+      peliSchema.findOne({id: id_movie})
+      .then((result) =>{
+        if(result){
+          res.json(result);
+        }else{
+          res.status(404).json({ message: 'Movie not found' });
+        }
+      })
+      .catch((errr)=>{
+        console.log(errr);
+        res.status(500).json({ message: 'Server Error' });
+      });
+    });
+    router.get('/movies/popular/:id',(req,res)=>{
+      const peliSchema = mongoose.model('populars', movies_squema);
+      peliSchema
+      const id_movie = req.params.id;
+      peliSchema.findOne({id: id_movie})
+      .then((result) =>{
+        if(result){
+          res.json(result);
+        }else{
+          res.status(404).json({ message: 'Movie not found' });
+        }
+      })
+      .catch((errr)=>{
+        console.log(errr);
+        res.status(500).json({ message: 'Server Error' });
+      });
+    });
+    router.get('/movies/toprated/:id',(req,res)=>{
+      const peliSchema = mongoose.model('toprateds', movies_squema);
+      peliSchema
+      const id_movie = req.params.id;
+      peliSchema.findOne({id: id_movie})
+      .then((result) =>{
+        if(result){
+          res.json(result);
+        }else{
+          res.status(404).json({ message: 'Movie not found' });
+        }
+      })
+      .catch((errr)=>{
+        console.log(errr);
+        res.status(500).json({ message: 'Server Error' });
+      });
+    });
+    router.get('/movies/upcoming/:id',(req,res)=>{
+      const peliSchema = mongoose.model('upcomings', movies_squema);
+      peliSchema
+      const id_movie = req.params.id;
+      peliSchema.findOne({id: id_movie})
+      .then((result) =>{
+        if(result){
+          res.json(result);
+        }else{
+          res.status(404).json({ message: 'Movie not found' });
+        }
+      })
+      .catch((errr)=>{
+        console.log(errr);
+        res.status(500).json({ message: 'Server Error' });
+      });
+    });
+    router.get('/movies/trending/:id',(req,res)=>{
+      const peliSchema = mongoose.model('trending', movies_squema);
+      peliSchema
+      const id_movie = req.params.id;
+      peliSchema.findOne({id: id_movie})
+      .then((result) =>{
+        if(result){
+          res.json(result);
+        }else{
+          res.status(404).json({ message: 'Movie not found' });
+        }
+      })
+      .catch((errr)=>{
+        console.log(errr);
+        res.status(500).json({ message: 'Server Error' });
+      });
+    });
     //delete movie
 module.exports = router;
