@@ -54,6 +54,7 @@ router.put('/users/:id',(req,res)=>{
   .catch((err)=>res.json({message: err}))
 });
 
+
 //delete * USUARIO
 router.delete('/users/delete/',(req,res)=>{
   const id = req.params.id; 

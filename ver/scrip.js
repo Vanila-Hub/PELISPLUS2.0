@@ -1,7 +1,9 @@
 let movie_id = localStorage.getItem('id');
 let permiso=localStorage.getItem('root');
+let liked_movies=[];
 const sesion_activa = document.getElementById('userTXT');
 const getUser = JSON.parse(localStorage.getItem('user'));
+//const getCUser = JSON.parse(document.cookie);
 const img_bak = document.getElementById('imgPOP');
 const iframe = document.getElementById('iframe');
 const titulo = document.getElementById('titulo');
@@ -20,6 +22,11 @@ let urls = [
   'http://localhost:2007/pelis-plus/movies/popular',
   'http://localhost:2007/pelis-plus/movies/nowplayin',
 ]
+if (getUser !== null) {
+  sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
+  sesion_activa.href = "/pelis-plus/home"
+  console.log(getUser.nombre);
+}
 if (permiso=='yes') {
   run();
 }else{
@@ -28,12 +35,7 @@ if (permiso=='yes') {
 
 function run(){
 
-  if (getUser !== null) {
-    sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
-    sesion_activa.href = "/pelis-plus/home"
-  }
   //localStorage.removeItem('user');
-  console.log(getUser.nombre);
   //console.log(img_bak.src);
 
 console.log(movie_id);
@@ -104,8 +106,13 @@ function verTrailer() {
   location.href = "http://localhost:2007/pelis-plus/movies/trailer";
 }
 function añadriF() {
-  const movie_id = localStorage.getItem('id_');
-  const movieee=JSON.parse(localStorage.getItem(`${movie_id}`));
+  const getUser = JSON.parse(localStorage.getItem('user'));
+  let movie_id = localStorage.getItem('id');
+  liked_movies.push(localStorage.getItem('liked_movies'));
+  liked_movies.push(movie_id);
+  localStorage.setItem('liked_movies',liked_movies).replace(",", ":");
+  console.log(liked_movies);
+  document.cookie=liked_movies;
   let icon = document.getElementById('icon');
   icon.className="fa fa-check";
   console.log(icon);

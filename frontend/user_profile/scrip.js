@@ -5,5 +5,5 @@ if (getUser !== null) {
   sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
   sesion_activa.href = "/pelis-plus/home"
 }
-localStorage.removeItem('user');
+//localStorage.removeItem('user');
 console.log(getUser);
