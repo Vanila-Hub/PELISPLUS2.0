@@ -152,6 +152,7 @@ async function añadriF() {
       });
       console.log(moviDDBS);
     });
+    
     }else{
       btnFav.addEventListener('click',()=>{
       sessionStorage.setItem('liked_movies',movie_id);

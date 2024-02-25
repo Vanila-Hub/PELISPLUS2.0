@@ -44,10 +44,7 @@ if (parseInt(localStorage.getItem('pageReloaded'))<4) {
             break;
     }
 }
-
-
 run();
-
 async function run() {
     //console.log(getUser);
     updateStorage();

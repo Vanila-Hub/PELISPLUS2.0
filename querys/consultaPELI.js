@@ -14,8 +14,6 @@ if (getUser !== null) {
     sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
     sesion_activa.href = "/pelis-plus/home"
 }
-
-
 async function leer(key) {
     if(key.keyCode != 13){
         for (let index = 0; index <60; index++) {

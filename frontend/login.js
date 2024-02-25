@@ -105,7 +105,6 @@ async function LoginUser(userData,password_login){
     alert('Password Incorrect');
   }
 }
-
 async function loginSuccesfull(userData){
   setTimeout(()=>{
     let favStr = userData.liked_movies;

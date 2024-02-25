@@ -208,12 +208,12 @@ let Upcoming_Movies = document.getElementById("Upcoming_Movies");
 let Tv_Shows = document.getElementById("Tv_Shows");
 let lista = '';
 let imagen_url = '';
-
 let creatElement = {
   elemento:'',
   imagen: '',
   wallpaper: ''
 };
+
 const esquemas = ['nowplayings','trending','upcoming','toprated','popular']
 let urls = [
   'http://localhost:2007/pelis-plus/movies/trending',
