@@ -29,17 +29,18 @@ GET  http://localhost:2007/pelis-plus/users/ HTTP/1.1
 ###
 
 ###
-GET  http://localhost:2007/pelis-plus/user/franky
+GET  http://localhost:2007/pelis-plus/users/get/65d1cf04e2ef313d60bd678e
+
 ###
-PUT  http://localhost:2007/pelis-plus/users/65b52bb72206f6089571caad HTTP/1.1
+PUT  http://localhost:2007/pelis-plus/users/update/65d1cf04e2ef313d60bd678e HTTP/1.1
 Content-Type: application/json
 
 {
   "nombre": "nono",
   "edad": "1990-01-01",
   "email": "usuario@example.com",
-  "password": "contraseña",
-  "saved_movies": ["Pelicula1", "Pelicula2"],
+  "password": "123",
+  "saved_movies": ["Pelicula99", "Pelicula2"],
   "liked_movies": ["Pelicula3", "Pelicula4"],
   "saved_series": ["Serie1", "Serie2"],
   "liked_series": ["Serie3", "Serie4"],

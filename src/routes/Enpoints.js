@@ -20,7 +20,7 @@ user_squema
 });
 
 //coger 1 USUARIO
-router.get('/users/:id',(req,res)=>{
+router.get('/users/get/:id',(req,res)=>{
     const id = req.params.id;  
     user_squema
         .findById(id)
@@ -45,7 +45,7 @@ router.get('/user/:nombre',(req,res)=>{
 });
 
 //update 1 USUARIO
-router.put('/users/:id',(req,res)=>{
+router.put('/users/update/:id',(req,res)=>{
   const id = req.params.id; 
   const {nombre,edad,email,password,saved_movies,liked_movies,saved_series,liked_series,liked_genres,icon} = req.body;
   user_squema

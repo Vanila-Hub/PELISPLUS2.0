@@ -157,7 +157,7 @@ setInterval(function () {
   erraseAll(links.upcoming);
   alert('snuicth');
   ubdateBBDD();
-},60 * 9000);
+},60 * 10000);
 
 async function erraseAll(columns) {
   try {

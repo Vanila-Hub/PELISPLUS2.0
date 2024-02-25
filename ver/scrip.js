@@ -1,6 +1,7 @@
+let clicked = false;
 let movie_id = localStorage.getItem('id');
 let permiso=localStorage.getItem('root');
-let liked_movies=[];
+let btnFav = document.getElementById('favorites');
 const sesion_activa = document.getElementById('userTXT');
 const getUser = JSON.parse(localStorage.getItem('user'));
 //const getCUser = JSON.parse(document.cookie);
@@ -105,15 +106,93 @@ function trailer(){
 function verTrailer() {
   location.href = "http://localhost:2007/pelis-plus/movies/trailer";
 }
-function añadriF() {
-  const getUser = JSON.parse(localStorage.getItem('user'));
-  let movie_id = localStorage.getItem('id');
-  liked_movies.push(localStorage.getItem('liked_movies'));
-  liked_movies.push(movie_id);
-  localStorage.setItem('liked_movies',liked_movies).replace(",", ":");
-  console.log(liked_movies);
-  document.cookie=liked_movies;
-  let icon = document.getElementById('icon');
-  icon.className="fa fa-check";
-  console.log(icon);
+añadriF();
+
+async function añadriF() {
+    const getUser = JSON.parse(localStorage.getItem('user'));
+    let  user_liked_movies = getUser.liked_movies;
+    console.log(getUser);
+    let movie_id = parseInt(localStorage.getItem('id'));
+    let favStr = (localStorage.getItem('liked_movies'));
+    console.log(favStr,movie_id);
+    if (favStr!==null) {
+    let favStr2 = favStr.split(',');
+    let favInt = favStr2.map(id_ => parseInt(id_));
+    let numerosIDs = await [...new Set(favInt)];
+    let moviDDBS = Array.from(numerosIDs);
+    console.log(moviDDBS);
+    checkFavorites(movie_id,moviDDBS);
+
+    btnFav.addEventListener('click',()=>{
+      moviDDBS.forEach(id_ => {
+        if (id_!==movie_id) {
+          if (clicked!==true) {
+            moviDDBS.push(movie_id);
+            localStorage.setItem('liked_movies',moviDDBS);
+            let icon = document.getElementById('icon');
+            icon.className="fa fa-check";
+            btnFav.style.backgroundColor='rgba(255, 0, 0, 0.99)';
+            getUser.liked_movies=moviDDBS;
+            clicked=true;
+            console.log(getUser,user_liked_movies);
+            uploadUser(getUser);
+          }
+        }else{
+          moviDDBS = moviDDBS.filter(pel => pel !== movie_id);
+          localStorage.setItem('liked_movies',moviDDBS);
+          let icon = document.getElementById('icon');
+          icon.className="fa fa-plus";
+          btnFav.style.backgroundColor='#40424a';
+          console.log(icon);
+          getUser.liked_movies=moviDDBS;
+          clicked=false;
+          console.log(getUser,user_liked_movies);
+          uploadUser(getUser);
+        }
+      });
+      console.log(moviDDBS);
+    });
+    }else{
+      btnFav.addEventListener('click',()=>{
+      localStorage.setItem('liked_movies',movie_id);
+      let icon = document.getElementById('icon');
+      icon.className="fa fa-check";
+      btnFav.style.backgroundColor='rgba(255, 0, 0, 0.99)';
+      console.log(icon);
+      getUser.liked_movies.push(movie_id);
+      clicked=true;
+      uploadUser(getUser);
+      });
+    }
+    console.log(getUser._id);
+}
+
+
+async function uploadUser(user) {
+  console.log(user);
+  try {
+    const pregunta = await fetch(`http://localhost:2007/pelis-plus/users/update/`+user._id,{
+      method:'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user)
+    })
+    const res = await pregunta.json();
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+function checkFavorites(movie_id,moviDDBS) {
+  console.log(movie_id,moviDDBS);
+  moviDDBS.forEach(id_ => {
+    if (id_===movie_id) {
+      console.log(moviDDBS,id_,movie_id);
+      let icon = document.getElementById('icon');
+      icon.className="fa fa-check";
+      btnFav.style.backgroundColor='rgba(255, 0, 0, 0.99)';
+      console.log(icon);
+    }
+  });
 }
