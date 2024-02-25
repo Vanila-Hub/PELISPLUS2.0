@@ -193,7 +193,6 @@ if (getUser !== null) {
 //sessionStorage.removeItem('user');
 console.log(getUser);
 
-
 /*apppen*/
 let titulo;
 let backrdoundIMG = '';
