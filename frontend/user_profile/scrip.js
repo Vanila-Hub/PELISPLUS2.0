@@ -11,13 +11,19 @@ let creatElement = {
     imagen: '',
     wallpaper: ''
   };
-if (getUser !== null) {
-    sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
-    sesion_activa.href = "/pelis-plus/home"
-
-}
+  if (getUser !== null) {
+    if (sesion_activa.innerText=='Sing-out, franky') {
+      sessionStorage.removeItem('user');
+    }else{
+      sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
+      sesion_activa.href = "blank"
+      sesion_activa.addEventListener('click',()=>{
+        sessionStorage.clear();
+        sesion_activa.href = "/pelis-plus/home"
+      });
+    }
+  }
 if (parseInt(localStorage.getItem('pageReloaded'))<4) {
-    // Set the flag indicating that the page has been reloaded
     switch (parseInt(localStorage.getItem('pageReloaded'))) {
         case 0:
             localStorage.setItem('pageReloaded', '1');
@@ -29,7 +35,7 @@ if (parseInt(localStorage.getItem('pageReloaded'))<4) {
             break;
         case 2:
             localStorage.setItem('pageReloaded', '3');
-            location.href="/pelis-plus/profile";
+            location.href="/pelis-plus/profile";5
             break;
         case 3:
             localStorage.setItem('pageReloaded', '4');
@@ -54,7 +60,8 @@ async function run() {
     let favInt = favStr2.map(id_ => parseInt(id_));
     let numerosIDs = [...new Set(favInt)];
     let moviDDBS = Array.from(numerosIDs);
-    console.log(moviDDBS);
+    moviDDBS = moviDDBS.filter(value => !isNaN(value));
+    console.log(isNaN(moviDDBS[0]));
     moviDDBS.forEach(e => {
         search_movie(e);
     });
@@ -87,15 +94,16 @@ async function updateStorage() {
 }
 
 async function crearElement(moviDDBS) {
+    
     if (moviDDBS[1]>0) {
         for (let index = 1; index < moviDDBS.length+1; index++) {
             let movie = `movie${index}`;
             console.log(movie);
             console.log(JSON.parse(sessionStorage.getItem(`movie${index}`)));
             let url= JSON.parse(sessionStorage.getItem((`movie${index}`)));
-            if (url.poster=="https://image.tmdb.org/t/p/originalundefined" || url==undefined) {
-                location.href="/pelis-plus/profile";
-            }
+            // if (url.poster=="https://image.tmdb.org/t/p/originalundefined") {
+            //     location.href="/pelis-plus/profile";
+            // }
 
             if (url.poster!="https://image.tmdb.org/t/p/originalnull") {
                 let modulo = `<img class="imgPOP" src="${url.poster}" alt="" id="${movie}" onclick="consulta(id)">`;

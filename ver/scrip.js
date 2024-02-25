@@ -24,9 +24,16 @@ let urls = [
   'http://localhost:2007/pelis-plus/movies/nowplayin',
 ]
 if (getUser !== null) {
-  sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
-  sesion_activa.href = "/pelis-plus/home"
-  console.log(getUser.nombre);
+  if (sesion_activa.innerText=='Sing-out, franky') {
+    sessionStorage.removeItem('user');
+  }else{
+    sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
+    sesion_activa.href = "blank"
+    sesion_activa.addEventListener('click',()=>{
+      sessionStorage.clear();
+      sesion_activa.href = "/pelis-plus/home"
+    });
+  }
 }
 if (permiso=='yes') {
   run();
