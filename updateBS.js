@@ -4,7 +4,7 @@ let uris = [
   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=",
   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=",
   "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=",
-  'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
+  'https://api.themoviedb.org/3/trending/movie/week?language=en-US'
 ];
 let pasado = false;
 let pelidcula =
@@ -42,81 +42,88 @@ const options = {
 async function ubdateBBDD() {
 
   for (let linkk = 0; linkk < uris.length; linkk++) {
-    for (let i = 1; i < 3; i++) {
+    for (let i = 1; i < 9; i++) {
       console.log(uris[linkk] + i);
       if (uris[linkk]!=uris[4]) {
         uris[linkk] = uris[linkk] + i;
       }else{
-        uris[linkk] = uris[4];i++;
+        uris[linkk] = uris[4];
       }
       fetch(uris[linkk], options)
         .then(response => response.json())
         .then(response => {
           response.results.forEach(respuesta => {
-            switch (linkk) {
-              case 0:
-                pelidcula.id = respuesta.id,
-                  pelidcula.titulo = respuesta.title,
-                  pelidcula.año = respuesta.release_date,
-                  pelidcula.sinopsis =respuesta.overview,
-                  pelidcula.poster =  path +  respuesta.poster_path,
-                  pelidcula.wallpaper = path + respuesta.backdrop_path,
-                  pelidcula.genre = respuesta.genre_ids,
-                  pelidcula.trailer = null,
-                  pelidcula.valoracion = respuesta.vote_average * 100 / 10;
-                uploadMovie(pelidcula, links.nowplaying);
-                break;
-              case 1:
-                // console.log(response);
-                pelidcula.id = respuesta.id,
-                  pelidcula.titulo = respuesta.title,
-                  pelidcula.año = respuesta.release_date,
-                  pelidcula.sinopsis = respuesta.overview,
-                  pelidcula.poster = path + respuesta.poster_path,
-                  pelidcula.wallpaper = path + respuesta.backdrop_path,
-                  pelidcula.genre = respuesta.genre_ids,
-                  pelidcula.trailer = null,
-                  pelidcula.valoracion = respuesta.vote_average * 100 / 10;
-                uploadMovie(pelidcula, links.popular);
-                break;
-              case 2:
-                pelidcula.id = respuesta.id,
-                  pelidcula.titulo = respuesta.title,
-                  pelidcula.año = respuesta.release_date,
-                  pelidcula.sinopsis = respuesta.overview,
-                  pelidcula.poster = path + respuesta.poster_path,
-                  pelidcula.wallpaper = path + respuesta.backdrop_path,
-                  pelidcula.genre = respuesta.genre_ids,
-                  pelidcula.trailer = null,
-                  pelidcula.valoracion = respuesta.vote_average * 100 / 10;
-                uploadMovie(pelidcula, links.toprated);
-                break;
-              case 3:
-                pelidcula.id = respuesta.id,
-                  pelidcula.titulo = respuesta.title,
-                  pelidcula.año = respuesta.release_date,
-                  pelidcula.sinopsis = respuesta.overview,
-                  pelidcula.poster = path + respuesta.poster_path,
-                  pelidcula.wallpaper = path + respuesta.backdrop_path,
-                  pelidcula.genre = respuesta.genre_ids,
-                  pelidcula.trailer = null,
-                  pelidcula.valoracion = respuesta.vote_average * 100 / 10;
-                uploadMovie(pelidcula, links.upcoming);
-                break;
-              case 4:
-                pelidcula.id = respuesta.id,
-                  pelidcula.titulo = respuesta.title,
-                  pelidcula.año = respuesta.release_date,
-                  pelidcula.sinopsis = respuesta.overview,
-                  pelidcula.poster = path + respuesta.poster_path,
-                  pelidcula.wallpaper = path + respuesta.backdrop_path,
-                  pelidcula.genre = respuesta.genre_ids,
-                  pelidcula.trailer = null,
-                  pelidcula.valoracion = respuesta.vote_average * 100 / 10;
-                uploadMovie(pelidcula, links.trending);
-                break;
-              default:
-                break;
+            let x = path + respuesta.poster_path;
+
+            if (x !== "https://image.tmdb.org/t/p/original//null") {
+                console.log("La variable x no es undefined ni null.");
+                switch (linkk) {
+                  case 0:
+                    pelidcula.id = respuesta.id,
+                      pelidcula.titulo = respuesta.title,
+                      pelidcula.año = respuesta.release_date,
+                      pelidcula.sinopsis =respuesta.overview,
+                      pelidcula.poster =  path +  respuesta.poster_path,
+                      pelidcula.wallpaper = path + respuesta.backdrop_path,
+                      pelidcula.genre = respuesta.genre_ids,
+                      pelidcula.trailer = null,
+                      pelidcula.valoracion = respuesta.vote_average * 100 / 10;
+                    uploadMovie(pelidcula, links.nowplaying);
+                    break;
+                  case 1:
+                    // console.log(response);
+                    pelidcula.id = respuesta.id,
+                      pelidcula.titulo = respuesta.title,
+                      pelidcula.año = respuesta.release_date,
+                      pelidcula.sinopsis = respuesta.overview,
+                      pelidcula.poster = path + respuesta.poster_path,
+                      pelidcula.wallpaper = path + respuesta.backdrop_path,
+                      pelidcula.genre = respuesta.genre_ids,
+                      pelidcula.trailer = null,
+                      pelidcula.valoracion = respuesta.vote_average * 100 / 10;
+                    uploadMovie(pelidcula, links.popular);
+                    break;
+                  case 2:
+                    pelidcula.id = respuesta.id,
+                      pelidcula.titulo = respuesta.title,
+                      pelidcula.año = respuesta.release_date,
+                      pelidcula.sinopsis = respuesta.overview,
+                      pelidcula.poster = path + respuesta.poster_path,
+                      pelidcula.wallpaper = path + respuesta.backdrop_path,
+                      pelidcula.genre = respuesta.genre_ids,
+                      pelidcula.trailer = null,
+                      pelidcula.valoracion = respuesta.vote_average * 100 / 10;
+                    uploadMovie(pelidcula, links.toprated);
+                    break;
+                  case 3:
+                    pelidcula.id = respuesta.id,
+                      pelidcula.titulo = respuesta.title,
+                      pelidcula.año = respuesta.release_date,
+                      pelidcula.sinopsis = respuesta.overview,
+                      pelidcula.poster = path + respuesta.poster_path,
+                      pelidcula.wallpaper = path + respuesta.backdrop_path,
+                      pelidcula.genre = respuesta.genre_ids,
+                      pelidcula.trailer = null,
+                      pelidcula.valoracion = respuesta.vote_average * 100 / 10;
+                    uploadMovie(pelidcula, links.upcoming);
+                    break;
+                  case 4:
+                    pelidcula.id = respuesta.id,
+                      pelidcula.titulo = respuesta.title,
+                      pelidcula.año = respuesta.release_date,
+                      pelidcula.sinopsis = respuesta.overview,
+                      pelidcula.poster = path + respuesta.poster_path,
+                      pelidcula.wallpaper = path + respuesta.backdrop_path,
+                      pelidcula.genre = respuesta.genre_ids,
+                      pelidcula.trailer = null,
+                      pelidcula.valoracion = respuesta.vote_average * 100 / 10;
+                    uploadMovie(pelidcula, links.trending);
+                    break;
+                  default:
+                    break;
+                }
+            } else {
+                console.log("La variable x es undefined o null.");
             }
           });
         })
@@ -148,16 +155,6 @@ async function uploadMovie(movie, columns) {
   }
 }
 
-
-// setInterval(function () {
-//   erraseAll(links.nowplaying);
-//   erraseAll(links.toprated);
-//   erraseAll(links.popular);
-//   erraseAll(links.trending);
-//   erraseAll(links.upcoming);
-//   alert('snuicth');
-//   ubdateBBDD();
-// },60 * 1000);
 erraseAll(links.nowplaying);
 erraseAll(links.toprated);
 erraseAll(links.popular);

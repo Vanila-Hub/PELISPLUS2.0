@@ -236,7 +236,6 @@ function app(modelo,padre) {
       <span class="tittle">${modelo.titulo}</span>
       <span class="rating2" id="rating2" style = " border: 5px ${calificaciones.color} solid;">${(modelo.valoracion).toString().substring(0,2)}% </span>
       </div>`;
-      
       creatElement.elemento.id = modelo.id;
       creatElement.elemento.innerHTML = IMAGENTAG;
       padre.appendChild(creatElement.elemento);
@@ -270,3 +269,24 @@ async function consulta(id) {
 }
 
 localStorage.setItem('pageReloaded', '0');
+
+// Función que se ejecutará cuando se desencadene el evento
+let coor=0;
+let xxx=0;
+let pxa = 0;
+  // Aquí puedes poner el código que quieras ejecutar cuando ocurra el evento
+let btnL = document.getElementById('favoritesL');
+let btnR = document.getElementById('favoritesR');
+btnR.addEventListener("click", (e)=>{
+        trendig.style.transition = "ease-in .3s ";
+        trendig.style.right = `${pxa + 50}rem`;
+        pxa = pxa + 60;
+      console.log(pxa);
+    });
+btnL.addEventListener("click", (e)=>{
+        trendig.style.transition = "ease-in .3s";
+        trendig.style.right = `${pxa - 50}rem`;
+        pxa = pxa - 60;
+      console.log(pxa);
+    });
+
