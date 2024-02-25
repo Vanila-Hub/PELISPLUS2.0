@@ -1,6 +1,6 @@
-let movie_id = localStorage.getItem('id');
+let movie_id = sessionStorage.getItem('id');
 const sesion_activa = document.getElementById('userTXT');
-const getUser = JSON.parse(localStorage.getItem('user'));
+const getUser = JSON.parse(sessionStorage.getItem('user'));
 const img_bak = document.getElementById('imgPOP');
 const iframe = document.getElementById('iframe');
 const titulo = document.getElementById('titulo');
@@ -19,8 +19,12 @@ let urls = [
   'http://localhost:2007/pelis-plus/movies/popular',
   'http://localhost:2007/pelis-plus/movies/nowplayin',
 ]
-let permis = localStorage.getItem('root');
+let permis = sessionStorage.getItem('root');
+if (getUser !== null) {
+  sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
+  sesion_activa.href = "/pelis-plus/home"
 
+}
 trailer();
 busqueda();
 
@@ -40,8 +44,8 @@ function trailer(){
     .then(response => {
       for (let index = 0; index < response.results.length; index++) {
         if (response.results[index].name.includes("railer")) {
-          localStorage.setItem('id_trailer',response.results[index].key);
-          let id_trailer= localStorage.getItem('id_trailer');
+          sessionStorage.setItem('id_trailer',response.results[index].key);
+          let id_trailer= sessionStorage.getItem('id_trailer');
           iframe.src = youtube_link + id_trailer;
           console.log(response.results[index].name);
           break;
@@ -53,7 +57,7 @@ function trailer(){
     .catch(err => console.error(err));
   }
 function busqueda(){
-  let movie_id = localStorage.getItem('id_');
+  let movie_id = sessionStorage.getItem('id_');
   img_bak.src = res.wallpaper;
   titulo.innerHTML = res.titulo + ` (${res.año.substring(0,4)})`;
   document.title="Ver " + res.titulo + " | Pelis+";

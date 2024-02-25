@@ -108,7 +108,10 @@ async function LoginUser(userData,password_login){
 
 async function loginSuccesfull(userData){
   setTimeout(()=>{
-    localStorage.setItem('user',JSON.stringify(userData));
+    let favStr = userData.liked_movies;
+    console.log(favStr);
+    sessionStorage.setItem('liked_movies',favStr);
+    sessionStorage.setItem('user',JSON.stringify(userData));
     setTimeout(()=>{location.href = "/pelis-plus/home";})
   },100);
 }
@@ -123,11 +126,11 @@ function singup(form){
   console.log(form);
   form.style.opacity = "1";
 }
-console.log(localStorage.getItem('user'));
+console.log(sessionStorage.getItem('user'));
 
 const usuario = document.getElementById('mail_login');
 const contraseña = document.getElementById('password_login');
-const getUser = JSON.parse(localStorage.getItem('user'));
+const getUser = JSON.parse(sessionStorage.getItem('user'));
 
 if( getUser !== null){
   console.log(getUser.nombre);
@@ -139,3 +142,4 @@ if( getUser !== null){
   usuario.value = getUser.nombre;
   contraseña.value = getUser.password;
 }
+

@@ -1,9 +1,9 @@
 let clicked = false;
-let movie_id = localStorage.getItem('id');
-let permiso=localStorage.getItem('root');
+let movie_id = sessionStorage.getItem('id');
+let permiso=sessionStorage.getItem('root');
 let btnFav = document.getElementById('favorites');
 const sesion_activa = document.getElementById('userTXT');
-const getUser = JSON.parse(localStorage.getItem('user'));
+const getUser = JSON.parse(sessionStorage.getItem('user'));
 //const getCUser = JSON.parse(document.cookie);
 const img_bak = document.getElementById('imgPOP');
 const iframe = document.getElementById('iframe');
@@ -36,7 +36,7 @@ if (permiso=='yes') {
 
 function run(){
 
-  //localStorage.removeItem('user');
+  //sessionStorage.removeItem('user');
   //console.log(img_bak.src);
 
 console.log(movie_id);
@@ -79,8 +79,8 @@ async function consulta(id) {
 }
 
 function trailer(){
-    const movie_id = localStorage.getItem('id_');
-    const movieee=JSON.parse(localStorage.getItem(`${movie_id}`));
+    const movie_id = sessionStorage.getItem('id_');
+    const movieee=JSON.parse(sessionStorage.getItem(`${movie_id}`));
     console.log(movieee);
       document.title="Ver " + movieee.titulo + " | Pelis+";
       img_bak.src = movieee.wallpaper;
@@ -100,7 +100,7 @@ function trailer(){
       rating.style.border= `5px solid ${calificaciones.color}`;
       console.log(movieee);
       console.log(img_bak.src);
-      localStorage.setItem('id',movieee.id);
+      sessionStorage.setItem('id',movieee.id);
     }
   
 function verTrailer() {
@@ -109,11 +109,11 @@ function verTrailer() {
 añadriF();
 
 async function añadriF() {
-    const getUser = JSON.parse(localStorage.getItem('user'));
+    const getUser = JSON.parse(sessionStorage.getItem('user'));
     let  user_liked_movies = getUser.liked_movies;
     console.log(getUser);
-    let movie_id = parseInt(localStorage.getItem('id'));
-    let favStr = (localStorage.getItem('liked_movies'));
+    let movie_id = parseInt(sessionStorage.getItem('id'));
+    let favStr = (sessionStorage.getItem('liked_movies'));
     console.log(favStr,movie_id);
     if (favStr!==null) {
     let favStr2 = favStr.split(',');
@@ -128,18 +128,18 @@ async function añadriF() {
         if (id_!==movie_id) {
           if (clicked!==true) {
             moviDDBS.push(movie_id);
-            localStorage.setItem('liked_movies',moviDDBS);
+            sessionStorage.setItem('liked_movies',moviDDBS);
             let icon = document.getElementById('icon');
-            icon.className="fa fa-check";
-            btnFav.style.backgroundColor='rgba(255, 0, 0, 0.99)';
-            getUser.liked_movies=moviDDBS;
-            clicked=true;
+           icon.className="fa fa-check";
+           btnFav.style.backgroundColor='rgba(255, 0, 0, 0.99)';
+           getUser.liked_movies=moviDDBS;
+           clicked=true;
             console.log(getUser,user_liked_movies);
             uploadUser(getUser);
           }
         }else{
           moviDDBS = moviDDBS.filter(pel => pel !== movie_id);
-          localStorage.setItem('liked_movies',moviDDBS);
+          sessionStorage.setItem('liked_movies',moviDDBS);
           let icon = document.getElementById('icon');
           icon.className="fa fa-plus";
           btnFav.style.backgroundColor='#40424a';
@@ -154,7 +154,7 @@ async function añadriF() {
     });
     }else{
       btnFav.addEventListener('click',()=>{
-      localStorage.setItem('liked_movies',movie_id);
+      sessionStorage.setItem('liked_movies',movie_id);
       let icon = document.getElementById('icon');
       icon.className="fa fa-check";
       btnFav.style.backgroundColor='rgba(255, 0, 0, 0.99)';

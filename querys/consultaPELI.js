@@ -2,7 +2,7 @@ let resultados = [];
 const esquemas = ['nowplayings','trending','upcoming','toprated','popular']
 const sectio = document.getElementById('miList');
 const sesion_activa = document.getElementById('userTXT');
-const getUser = JSON.parse(localStorage.getItem('user'));
+const getUser = JSON.parse(sessionStorage.getItem('user'));
 let i=0;miList
 let imagen_url = '';
 let creatElement = {
@@ -14,10 +14,12 @@ if (getUser !== null) {
     sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
     sesion_activa.href = "/pelis-plus/home"
 }
+
+
 async function leer(key) {
     if(key.keyCode != 13){
         for (let index = 0; index <60; index++) {
-            await localStorage.removeItem(`peli${index}`);
+            await sessionStorage.removeItem(`peli${index}`);
         }
         let input = document.getElementById('input');
         const query_ = input.value.replace(/ /g, "%20");
@@ -73,11 +75,11 @@ async function search_movie(query) {
             
           })
           .finally(()=>{
-            for (let index = 1; index < localStorage.length; index++) {
-                console.log(JSON.parse(localStorage.getItem(`peli${index}`)));
+            for (let index = 1; index < sessionStorage.length; index++) {
+                console.log(JSON.parse(sessionStorage.getItem(`peli${index}`)));
                 let movie = `peli${index}`;
                 console.log(movie);
-                let url= JSON.parse(localStorage.getItem((`peli${index}`)));
+                let url= JSON.parse(sessionStorage.getItem((`peli${index}`)));
                 if (url.poster!="https://image.tmdb.org/t/p/originalnull") {
                     let modulo = `<img class="imgPOP" src="${url.poster}" alt="" id="${movie}" onclick="consulta(id)">`;
                     const nuevoElemento = document.createElement("li");
@@ -93,11 +95,11 @@ async function search_movie(query) {
 }
 
 function añadrirP(peliculas,i) {
-    localStorage.setItem(`peli${i}`,JSON.stringify(peliculas));
+    sessionStorage.setItem(`peli${i}`,JSON.stringify(peliculas));
 }
 function consulta(id) {
     console.log(id.value);
-    localStorage.setItem('id_',id);
-    localStorage.setItem('root',"no");
+    sessionStorage.setItem('id_',id);
+    sessionStorage.setItem('root',"no");
     location.href = "http://localhost:2007/pelis-plus/movies/ver/"+id;
 }

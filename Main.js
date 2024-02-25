@@ -180,13 +180,17 @@ async function erraseAll(columns) {
 }
 
 const sesion_activa = document.getElementById('userTXT');
-const getUser = JSON.parse(localStorage.getItem('user'));
+const getUser = JSON.parse(sessionStorage.getItem('user'));
 
 if (getUser !== null) {
-  sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
-  sesion_activa.href = "/pelis-plus/home"
+  if (sesion_activa.innerText=='Sing-out, franky') {
+    sessionStorage.removeItem('user');
+  }else{
+    sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
+    sesion_activa.href = "/pelis-plus/home"
+  }
 }
-//localStorage.removeItem('user');
+//sessionStorage.removeItem('user');
 console.log(getUser);
 
 
@@ -391,8 +395,8 @@ async function consulta(id) {
       console.log(res.message);
       if (res!=='Movie not found') {
         console.log("noino");
-        localStorage.setItem('id',id);
-        localStorage.setItem('root',"yes");
+        sessionStorage.setItem('id',id);
+        sessionStorage.setItem('root',"yes");
        location.href = "http://localhost:2007/pelis-plus/movies/ver/"+id;
       }
     } catch (error) {
@@ -401,3 +405,4 @@ async function consulta(id) {
   }
 }
 
+localStorage.setItem('pageReloaded', '0');
