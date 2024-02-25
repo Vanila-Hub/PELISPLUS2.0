@@ -21,9 +21,16 @@ let urls = [
 ]
 let permis = sessionStorage.getItem('root');
 if (getUser !== null) {
-  sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
-  sesion_activa.href = "/pelis-plus/home"
-
+  if (sesion_activa.innerText=='Sing-out, franky') {
+    sessionStorage.removeItem('user');
+  }else{
+    sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
+    sesion_activa.href = "blank"
+    sesion_activa.addEventListener('click',()=>{
+      sessionStorage.clear();
+      sesion_activa.href = "/pelis-plus/home"
+    });
+  }
 }
 trailer();
 busqueda();

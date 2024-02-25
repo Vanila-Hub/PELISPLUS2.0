@@ -157,7 +157,7 @@ setInterval(function () {
   erraseAll(links.upcoming);
   alert('snuicth');
   ubdateBBDD();
-},60 * 10000);
+},60 * 1000);
 
 async function erraseAll(columns) {
   try {
@@ -187,7 +187,11 @@ if (getUser !== null) {
     sessionStorage.removeItem('user');
   }else{
     sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
-    sesion_activa.href = "/pelis-plus/home"
+    sesion_activa.href = "blank"
+    sesion_activa.addEventListener('click',()=>{
+      sessionStorage.clear();
+      sesion_activa.href = "/pelis-plus/home"
+    });
   }
 }
 //sessionStorage.removeItem('user');

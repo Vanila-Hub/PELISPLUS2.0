@@ -10,10 +10,18 @@ let creatElement = {
     imagen: '',
     wallpaper: ''
   };
-if (getUser !== null) {
-    sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
-    sesion_activa.href = "/pelis-plus/home"
-}
+  if (getUser !== null) {
+    if (sesion_activa.innerText=='Sing-out, franky') {
+      sessionStorage.removeItem('user');
+    }else{
+      sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
+      sesion_activa.href = "blank"
+      sesion_activa.addEventListener('click',()=>{
+        sessionStorage.clear();
+        sesion_activa.href = "/pelis-plus/home"
+      });
+    }
+  }
 async function leer(key) {
     if(key.keyCode != 13){
         for (let index = 0; index <60; index++) {
