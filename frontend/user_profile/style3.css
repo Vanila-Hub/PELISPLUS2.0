@@ -253,7 +253,7 @@ h1{
 .li{
     list-style: none;
     height: 45vh;
-    background-color: gold;
+    background-color: linear-gradient(to bottom,rgba(255,255,255,0)0,#000000 100%);
     border-radius: 8px;
     transition: ease-out .3s;
     box-shadow:  12px 10px 2px rgba(2, 2, 2, 0.631);
