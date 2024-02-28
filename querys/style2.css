@@ -142,9 +142,10 @@ section > ul{
 }
 .buscar{
     background: rgb(75, 78, 90);
-    height: 100px;
+    height: 100%;
+    width: fit-content;
     position: relative;
-    top: 73px;
+    top: 6rem;
     border-radius: 25px;
 }
 .buscar > input {

@@ -110,7 +110,6 @@ async function fecht_Now_playing(row, contenido) {
     //console.log(res[g].valoracion,contenido,g);
     app(res[g],contenido);
   }
-
   }
     catch(err){
       console.log("server dice que ->",err);
