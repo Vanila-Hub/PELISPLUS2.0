@@ -23,11 +23,11 @@ let pelidcula =
   trailer: ""
 }
 let links = {
-  'nowplaying': '/pelis-plus/movies/nowplayin/',
-  'popular': '/pelis-plus/movies/popular/',
-  'toprated': '/pelis-plus/movies/toprated/',
-  'trending': '/pelis-plus/movies/trending/',
-  'upcoming': '/pelis-plus/movies/upcoming/'
+  'nowplaying': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/nowplayin/',
+  'popular': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/popular/',
+  'toprated': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/toprated/',
+  'trending': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/trending/',
+  'upcoming': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/upcoming/'
 };
 
 let path = 'https://image.tmdb.org/t/p/original//';
@@ -39,7 +39,6 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZjk1NWEyMzU3NmE4NzdiNGI0NDA4NjdiZDdmYTNkNSIsInN1YiI6IjY1NzA5MmY5YzhhMmQ0MDBlMTBiZmI5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.WQj2s2CEnp2kYdF1g3k6xnocEjxSMyfbBvZWI0nuj0c' 
   }
 };
-
 async function ubdateBBDD() {
 
   for (let linkk = 0; linkk < uris.length; linkk++) {
@@ -122,6 +121,7 @@ async function ubdateBBDD() {
                     break;
                   default:
                     break;
+                    
                 }
             } else {
                 console.log("La variable x es undefined o null.");

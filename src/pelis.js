@@ -1,3 +1,4 @@
+const { exec } = require('child_process');
 const express = require('express');
 const router = express.Router();
 const peli_squema = require('./routes/models/PelisModels');
@@ -23,6 +24,7 @@ app.listen(port,()=> console.log("escuchando en el puerto", port))
 mongoose.connect(process.env.MONGODB_URI_PELIS_COLLECTION)
 .then(()=>{
     console.log("conexion buenas");
+   
     const indexPath = path.join(__dirname, '..', 'index.html');
     console.log(indexPath);
 })
@@ -38,3 +40,18 @@ router.delete('/peli/delete/',(req,res)=>{
         .then((data)=>res.json(data))
         .catch((err)=>res.json({message: err}))
     });
+
+
+function runUpdateScript() {
+      exec('npm run update', (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.error(`stderr: ${stderr}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
+      });
+    }
