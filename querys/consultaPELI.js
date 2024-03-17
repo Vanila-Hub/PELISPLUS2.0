@@ -107,5 +107,5 @@ function consulta(id) {
     console.log(id.value);
     sessionStorage.setItem('id_',id);
     sessionStorage.setItem('root',"no");
-    location.href = "http://localhost:2007/pelis-plus/movies/ver/"+id;
+    location.href = "/pelis-plus/movies/ver/"+id;
 }

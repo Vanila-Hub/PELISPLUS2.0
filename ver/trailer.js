@@ -13,11 +13,11 @@ let calificaciones = {
 }
 const esquemas = ['nowplayings','trending','upcoming','toprated','popular']
 let urls = [
-  'http://localhost:2007/pelis-plus/movies/trending',
-  'http://localhost:2007/pelis-plus/movies/upcoming',
-  'http://localhost:2007/pelis-plus/movies/toprated',
-  'http://localhost:2007/pelis-plus/movies/popular',
-  'http://localhost:2007/pelis-plus/movies/nowplayin',
+  '/pelis-plus/movies/trending',
+  '/pelis-plus/movies/upcoming',
+  '/pelis-plus/movies/toprated',
+  '/pelis-plus/movies/popular',
+  '/pelis-plus/movies/nowplayin',
 ]
 let permis = sessionStorage.getItem('root');
 if (getUser !== null) {

@@ -17,11 +17,11 @@ let calificaciones = {
 }
 const esquemas = ['nowplayings','trending','upcoming','toprated','popular']
 let urls = [
-  'http://localhost:2007/pelis-plus/movies/trending',
-  'http://localhost:2007/pelis-plus/movies/upcoming',
-  'http://localhost:2007/pelis-plus/movies/toprated',
-  'http://localhost:2007/pelis-plus/movies/popular',
-  'http://localhost:2007/pelis-plus/movies/nowplayin',
+  '/pelis-plus/movies/trending',
+  '/pelis-plus/movies/upcoming',
+  '/pelis-plus/movies/toprated',
+  '/pelis-plus/movies/popular',
+  '/pelis-plus/movies/nowplayin',
 ]
 if (getUser !== null) {
   if (sesion_activa.innerText=='Sing-out, franky') {
@@ -52,7 +52,7 @@ consulta(movie_id);
 async function consulta(id) {
   for (let i = 0; i < esquemas.length; i++) {
     try {
-      const pregunta = await fetch(`http://localhost:2007/pelis-plus/movies/${esquemas[i]}/`+id,{
+      const pregunta = await fetch(`/pelis-plus/movies/${esquemas[i]}/`+id,{
         method:'GET',
         headers: {
           'Content-Type': 'aplication/json',
@@ -111,7 +111,7 @@ function trailer(){
     }
   
 function verTrailer() {
-  location.href = "http://localhost:2007/pelis-plus/movies/trailer";
+  location.href = "/pelis-plus/movies/trailer";
 }
 añadriF();
 
@@ -179,7 +179,7 @@ async function añadriF() {
 async function uploadUser(user) {
   console.log(user);
   try {
-    const pregunta = await fetch(`http://localhost:2007/pelis-plus/users/update/`+user._id,{
+    const pregunta = await fetch(`/pelis-plus/users/update/`+user._id,{
       method:'PUT',
       headers: {
         'Content-Type': 'application/json',

@@ -24,11 +24,11 @@ let pelidcula =
 }
 
 let links = {
-  'nowplaying': 'http://localhost:2007/pelis-plus/movies/nowplayin/',
-  'popular': 'http://localhost:2007/pelis-plus/movies/popular/',
-  'toprated': 'http://localhost:2007/pelis-plus/movies/toprated/',
-  'trending': 'http://localhost:2007/pelis-plus/movies/trending/',
-  'upcoming': 'http://localhost:2007/pelis-plus/movies/upcoming/'
+  'nowplaying': '/pelis-plus/movies/nowplayin/',
+  'popular': '/pelis-plus/movies/popular/',
+  'toprated': '/pelis-plus/movies/toprated/',
+  'trending': '/pelis-plus/movies/trending/',
+  'upcoming': '/pelis-plus/movies/upcoming/'
 };
 
 let path = 'https://image.tmdb.org/t/p/original//';
@@ -82,11 +82,11 @@ let creatElement = {
 
 const esquemas = ['nowplayings','trending','upcoming','toprated','popular']
 let urls = [
-  'http://localhost:2007/pelis-plus/movies/trending',
-  'http://localhost:2007/pelis-plus/movies/upcoming',
-  'http://localhost:2007/pelis-plus/movies/toprated',
-  'http://localhost:2007/pelis-plus/movies/popular',
-  'http://localhost:2007/pelis-plus/movies/nowplayin',
+  '/pelis-plus/movies/trending',
+  '/pelis-plus/movies/upcoming',
+  '/pelis-plus/movies/toprated',
+  '/pelis-plus/movies/popular',
+  '/pelis-plus/movies/nowplayin',
 ]
 
 let contenidos = [trendig,Upcoming_Movies,Top_Rated,Popular,nowPlaying]
@@ -248,7 +248,7 @@ function app(modelo,padre) {
 async function consulta(id) {
   for (let i = 0; i < esquemas.length; i++) {
     try {
-      const pregunta = await fetch(`http://localhost:2007/pelis-plus/movies/${esquemas[i]}/`+id,{
+      const pregunta = await fetch(`/pelis-plus/movies/${esquemas[i]}/`+id,{
         method:'GET',
         headers: {
           'Content-Type': 'aplication/json',
@@ -260,7 +260,7 @@ async function consulta(id) {
         console.log("noino");
         sessionStorage.setItem('id',id);
         sessionStorage.setItem('root',"yes");
-       location.href = "http://localhost:2007/pelis-plus/movies/ver/"+id;
+       location.href = "/pelis-plus/movies/ver/"+id;
       }
     } catch (error) {
       console.log(error);

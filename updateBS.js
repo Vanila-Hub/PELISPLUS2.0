@@ -23,11 +23,11 @@ let pelidcula =
   trailer: ""
 }
 let links = {
-  'nowplaying': 'http://localhost:2007/pelis-plus/movies/nowplayin/',
-  'popular': 'http://localhost:2007/pelis-plus/movies/popular/',
-  'toprated': 'http://localhost:2007/pelis-plus/movies/toprated/',
-  'trending': 'http://localhost:2007/pelis-plus/movies/trending/',
-  'upcoming': 'http://localhost:2007/pelis-plus/movies/upcoming/'
+  'nowplaying': '/pelis-plus/movies/nowplayin/',
+  'popular': '/pelis-plus/movies/popular/',
+  'toprated': '/pelis-plus/movies/toprated/',
+  'trending': '/pelis-plus/movies/trending/',
+  'upcoming': '/pelis-plus/movies/upcoming/'
 };
 
 let path = 'https://image.tmdb.org/t/p/original//';
