@@ -22,6 +22,7 @@ let pelidcula =
   valoracion: 0,
   trailer: ""
 }
+
 let links = {
   'nowplaying': 'http://localhost:2007/pelis-plus/movies/nowplayin/',
   'popular': 'http://localhost:2007/pelis-plus/movies/popular/',
