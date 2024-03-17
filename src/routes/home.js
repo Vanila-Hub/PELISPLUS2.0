@@ -7,6 +7,11 @@ router.get('/home',(req,res)=>{
   const indexPath = path.join(__dirname, '..','..', 'index.html');
   res.sendFile(indexPath);
 });
+//el js
+router.get('/pelis-plus/Mainjs',(req,res)=>{
+  const indexPath = path.join(__dirname, '..','..', 'Main.js');
+  res.sendFile(indexPath);
+});
 
 //el css
 router.get('/style.css',(req,res)=>{
