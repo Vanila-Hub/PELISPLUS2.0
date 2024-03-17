@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const pelis = require('./routes/pelisEnd');
 const usr_routs = require('./routes/Enpoints');
 const home_routs = require('./routes/home');
-
+const path = require('path');
 
 require('dotenv').config();
 const app = express();
@@ -23,6 +23,8 @@ app.listen(port,()=> console.log("escuchando en el puerto", port))
 mongoose.connect(process.env.MONGODB_URI_PELIS_COLLECTION)
 .then(()=>{
     console.log("conexion buenas");
+    const indexPath = path.join(__dirname, '..', '..', 'index.html');
+    res.sendFile(indexPath);
 })
     .catch(err=>{
         console.log(err);
