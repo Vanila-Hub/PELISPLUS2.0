@@ -143,7 +143,6 @@ section > ul{
 .buscar{
     background: rgb(75, 78, 90);
     height: 100%;
-    width: fit-content;
     position: relative;
     top: 6rem;
     border-radius: 25px;
@@ -193,12 +192,14 @@ div{
 .imgPOP{
     height: 100%;
     width: -webkit-fill-available;
+    object-fit: contain;
     border-radius: 8px;
+    transition: ease-in .1s;
 }
 .imgPOP:hover{
     cursor: pointer;
-    border: 7px rgba(252, 7, 7, 0.51) solid;
     border-radius: 8px;
+    transition: ease-in .2s;
 }
 .li:hover{
     transform: scale(1.05);

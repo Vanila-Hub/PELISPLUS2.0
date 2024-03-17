@@ -33,11 +33,11 @@ if (getUser !== null) {
   }
 }
 trailer();
-busqueda();
+//busqueda();
 
 
 function trailer(){
-  
+  document.title="Ver " + "movie" + " | Pelis+";
   const options = {
     method: 'GET',
     headers: {
@@ -54,6 +54,7 @@ function trailer(){
           sessionStorage.setItem('id_trailer',response.results[index].key);
           let id_trailer= sessionStorage.getItem('id_trailer');
           iframe.src = youtube_link + id_trailer;
+          document.title="Ver " + response.results[index].name + " | Pelis+";
           console.log(response.results[index].name);
           break;
         }
@@ -63,10 +64,9 @@ function trailer(){
     .catch(err => console.error(err));
   }
 function busqueda(){
-  let movie_id = sessionStorage.getItem('id_');
   img_bak.src = res.wallpaper;
   titulo.innerHTML = res.titulo + ` (${res.año.substring(0,4)})`;
-  document.title="Ver " + res.titulo + " | Pelis+";
+  document.title="Ver " + movie.titulo + " | Pelis+";
   sinopsis.innerHTML=res.sinopsis;
 
   if (res.valoracion < 10) {

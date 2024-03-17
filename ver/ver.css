@@ -355,7 +355,7 @@ button{
     -webkit-font-smoothing: antialiased;
     cursor: pointer;
     display: inline-block;
-    font-size:98px;
+    font-size:3rem;
     font-weight: 900;
     letter-spacing: 1.5px;
     line-height: 1.6;
