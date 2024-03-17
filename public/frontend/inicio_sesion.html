@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelis+ | Login</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="shortcut icon" href="http://localhost:2007/pelis-plus/fotos/icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="nave">
+        <ul>
+            <li class="item2"><i class="fa fa-home"></i><span><a href="/pelis-plus/home">INICIO</a></span></li>
+            <li class="item3"><i class="fa fas fa-search"></i><span><a href="/querys/busqueda.html">BÚSQUEDA</a></span></li>
+            <li class="item4"><i class="fa fas fa-plus"></i><span><a href="./frontend/user_profile/profile.html">MI LISTA</a></span></li>
+            <li class="item5"><i class="fa far fa-star"></i><span>ORIGINALES</span></li>
+            <li class="item6"><i class="fa fas fa-film"></i><span>PELICULAS</span></li>
+            <li class="item7"><i class="fa fas fa-tv"></i><span>SERIES</span></li>
+        </ul>
+    </nav>
+    
+<main>
+    <section class="inicio">
+        <div class="descripcion" id="login_user">
+            <div class="formulacio">
+                <form>
+                    <input type="text" name="Correo Electronico" id="mail_login" placeholder="Usuario">
+                    <input type="password" name="password" id="password_login" placeholder="Contraseña" onkeyup="login_usr(mail_login,password_login,event)">
+                    <input type="button" value="Login" id="login" onclick="veryfyUser(mail_login,password_login)"  class="btn">
+                    <a class="forgotten_passw" href="http://">Having trouble logging in?</a>
+                    <input type="button" value="SingUp" id="btn_singUp">
+                </form>
+            </div>
+        </div>
+        <div class="descripcion2" id="create_user">
+            <div class="formulacio2">
+                <form>
+                    <input type="text" placeholder="Nombre de Usuario" id="nombre">
+                    <input type="password" name="password" id="password_new" placeholder="Contraseña">
+                    
+                    <input type="password" name="password" id="password_verify" placeholder="Confirmar Contraseña">
+                    <input type="email" name="Correo Electronico" id="mail_new" placeholder="Correo Electronico">
+                    <input type="text" placeholder="Fecha de nacimineto" id="edad">
+                    <label for="imagen-perfil">Imagen de perfil</label>
+                    <input type="file" name="imagen-perfil" id="icon" placeholder="Imagen de perfil">
+                    <input type="button" value="Register" id="submit" onclick="setUser(nombre,password_new,password_verify,mail_new,edad,icon)"  class="btn">
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="http://localhost:2007/pelis-plus/frontend/login.js"></script>
+</body>
+</html>
