@@ -115,7 +115,7 @@
   },
   "scripts": {
     "start": "node ./src/pelis.js",
-    "update": "node updateBS.js"
+    "update": "node ./updateBS.js"
   },
   "author": "",
   "license": "ISC",

@@ -24,7 +24,7 @@ app.listen(port,()=> console.log("escuchando en el puerto", port))
 mongoose.connect(process.env.MONGODB_URI_PELIS_COLLECTION)
 .then(()=>{
     console.log("conexion buenas");
-   
+   // runUpdateScript();
     const indexPath = path.join(__dirname, '..', 'index.html');
     console.log(indexPath);
 })
