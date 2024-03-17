@@ -4,19 +4,19 @@ const path = require('path');
 
 //el html
 router.get('/home',(req,res)=>{
-  const indexPath = path.join(__dirname, '..', 'index.html');
+  const indexPath = path.join(__dirname, '..','..', 'index.html');
   res.sendFile(indexPath);
 });
 
 //el css
 router.get('/style.css',(req,res)=>{
-    const indexPath = path.join(__dirname, '..', 'style.css');
+    const indexPath = path.join(__dirname, '..','..', 'style.css');
   
     res.sendFile(indexPath);
   });
 //el css2
 router.get('/style2.css',(req,res)=>{
-    const indexPath = path.join(__dirname, '..', 'frontend', 'style2.css');
+    const indexPath = path.join(__dirname, '..','..', 'frontend', 'style2.css');
   
     res.sendFile(indexPath);
   });
