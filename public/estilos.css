@@ -1,0 +1,8 @@
+.text-center{
+    background: white;
+    padding: 10px;
+}
+
+.col-6,.col-12,.row, .col-3,.col-10,.col-3,.col-11{
+    border: solid black 2px;
+}
