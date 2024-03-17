@@ -1,6 +1,6 @@
 
-const create_user = "http://localhost:2007/pelis-plus/users"
-const uri_for_login = "http://localhost:2007/pelis-plus/user/"
+const create_user = "/pelis-plus/users"
+const uri_for_login = "/pelis-plus/user/"
 let user = {
     nombre:"",
     edad:"",
