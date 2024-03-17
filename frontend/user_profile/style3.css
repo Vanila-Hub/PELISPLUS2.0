@@ -273,3 +273,10 @@ h1{
     font-size: medium;
     font-weight: 700;
 }
+.text-primary {
+    --bs-text-opacity: 1;
+    padding: 32px;
+    left: 48%;
+    position: relative;
+    color: #7b00ff !important;
+}

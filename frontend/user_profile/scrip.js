@@ -4,6 +4,7 @@ let index=1;
 const esquemas = ['nowplayings','trending','upcoming','toprated','popular']
 const sectio = document.getElementById('miList');
 const sesion_activa = document.getElementById('userTXT');
+const loading_circle = document.getElementById('loading');
 const getUser = JSON.parse(sessionStorage.getItem('user'));
 let imagen_url = '';
 let creatElement = {
@@ -14,6 +15,7 @@ let creatElement = {
   if (getUser !== null) {
     if (sesion_activa.innerText=='Sing-out, franky') {
       sessionStorage.removeItem('user');
+      
     }else{
       sesion_activa.innerHTML = 'Sing-out, ' + getUser.nombre;
       sesion_activa.href = "blank"
@@ -22,6 +24,8 @@ let creatElement = {
         sesion_activa.href = "/pelis-plus/home"
       });
     }
+  }else{
+    loading_circle.style.display ="none";
   }
 if (parseInt(localStorage.getItem('pageReloaded'))<4) {
     switch (parseInt(localStorage.getItem('pageReloaded'))) {
@@ -44,6 +48,7 @@ if (parseInt(localStorage.getItem('pageReloaded'))<4) {
         case 4:
             localStorage.setItem('pageReloaded', '5');
             location.href="/pelis-plus/profile";
+            loading_circle.style.display ="none";
             break;
     
         default:
@@ -166,6 +171,7 @@ async function search_movie(id) {
 
 function añadrirP(peliculas,i) {
     console.log("me bvebgoooo");
+    loading_circle.style.display ="none";
     sessionStorage.setItem(`movie${i}`,JSON.stringify(peliculas));
 }
 function consulta(id) {
