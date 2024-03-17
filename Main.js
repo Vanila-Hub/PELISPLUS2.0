@@ -134,7 +134,7 @@ function app(modelo,padre) {
         calificaciones.color = "limegreen";
       }
       IMAGENTAG = 
-      `<div><img class="wallp" src="" alt="" onclick="consulta(${id=modelo.id})">
+      `<div onclick="consulta(${id=modelo.id})"><img class="wallp" src="" alt="">
       <div class="padre">
       <span class="sinopsis">${modelo.sinopsis})<span class="rating" id="rating" style = " border: 5px ${calificaciones.color} solid;">${(modelo.valoracion).toString().substring(0,2)}%</span></span>
       <span class="overvew" >${modelo.titulo} (${modelo.año.substring(0,4)})</span>`
