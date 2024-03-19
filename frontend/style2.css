@@ -284,3 +284,55 @@ img{
     transition: ease-out .3s;
     transform: translate(3px, -49px);
 }
+
+@media (width<600px){
+    .item5,.item6,.item7{
+        display: none;
+    }
+    nav > ul {
+        display: grid;
+        list-style: none;
+        grid-template-columns: 0;
+        grid-template-areas: 'logo inicio busqueda lists originales pelicula series perfil';
+        text-align: center;
+        width: 140vh;
+        margin: 0;
+        cursor: pointer;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        align-content: space-around;
+    }
+    body > ul {
+        position: relative;
+        list-style: none;
+        height: 65%;
+        width: auto;
+        display: none;
+        gap: 32px;
+        margin: 0% 0%;
+        padding-bottom: 9%;
+        background-color: rebeccapurple;
+        align-content: center;
+    }
+    .inicio {
+        background-image: linear-gradient(#05050575, rgba(255, 255, 255, 0.226));
+        display: inline-flex;
+        position: relative;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 55px;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 80%;
+        left: 0;
+        border-radius: 8px;
+    }
+main {
+    position: relative;
+    top: 6rem;
+    padding: 0;
+    margin: 0;
+    }
+}
