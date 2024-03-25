@@ -54,7 +54,6 @@ async function ubdateBBDD() {
         .then(response => {
           response.results.forEach(respuesta => {
             let x = path + respuesta.poster_path;
-
             if (x !== "https://image.tmdb.org/t/p/original//null") {
                 console.log("La variable x no es undefined ni null.");
                 switch (linkk) {

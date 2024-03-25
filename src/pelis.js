@@ -7,6 +7,9 @@ const pelis = require('./routes/pelisEnd');
 const usr_routs = require('./routes/Enpoints');
 const home_routs = require('./routes/home');
 const path = require('path');
+const CronJob = require('cron').CronJob;
+ 
+
 
 require('dotenv').config();
 const app = express();
@@ -55,3 +58,14 @@ function runUpdateScript() {
         console.log(`stdout: ${stdout}`);
       });
     }
+
+
+
+// Configurar el cron job para ejecutar la función cada minuto
+const job = new CronJob('0 4 * * *', runUpdateScript);
+
+// Iniciar el cron job
+job.start();
+
+console.log('Cron job iniciado. Se ejecutará el archivo npm update cada minuto.');
+ 
