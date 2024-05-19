@@ -22,7 +22,6 @@ app.use('/pelis-plus',pelis,usr_routs,home_routs);
 
 /* LEVANTAMOS SERVIDOR */
 app.listen(port,()=> console.log("escuchando en el puerto", port))
-
 /* NOS CONECTAMOS A MONGODB*/
 mongoose.connect(process.env.MONGODB_URI_PELIS_COLLECTION)
 .then(()=>{

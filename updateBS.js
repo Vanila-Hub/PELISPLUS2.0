@@ -23,11 +23,11 @@ let pelidcula =
   trailer: ""
 }
 let links = {
-  'nowplaying': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/nowplayin/',
-  'popular': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/popular/',
-  'toprated': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/toprated/',
-  'trending': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/trending/',
-  'upcoming': 'https://pelisplus2-dev-djpc.2.ie-1.fl0.io/pelis-plus/movies/upcoming/'
+  'nowplaying': 'https://pelisplus2-0.onrender.com/pelis-plus/movies/nowplayin/',
+  'popular': 'https://pelisplus2-0.onrender.com/pelis-plus/movies/popular/',
+  'toprated': 'https://pelisplus2-0.onrender.com/pelis-plus/movies/toprated/',
+  'trending': 'https://pelisplus2-0.onrender.com/pelis-plus/movies/trending/',
+  'upcoming': 'https://pelisplus2-0.onrender.com/pelis-plus/movies/upcoming/'
 };
 
 let path = 'https://image.tmdb.org/t/p/original//';
