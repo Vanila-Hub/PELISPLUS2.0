@@ -42,7 +42,7 @@ const options = {
 async function ubdateBBDD() {
 
   for (let linkk = 0; linkk < uris.length; linkk++) {
-    for (let i = 1; i < 9; i++) {
+    for (let i = 1; i < 4; i++) {
       console.log(uris[linkk] + i);
       if (uris[linkk]!=uris[4]) {
         uris[linkk] = uris[linkk] + i;
