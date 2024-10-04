@@ -42,29 +42,3 @@ router.delete('/peli/delete/',(req,res)=>{
         .then((data)=>res.json(data))
         .catch((err)=>res.json({message: err}))
     });
-
-
-function runUpdateScript() {
-      exec('npm run update', (error, stdout, stderr) => {
-        if (error) {
-          console.error(`Error: ${error.message}`);
-          return;
-        }
-        if (stderr) {
-          console.error(`stderr: ${stderr}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
-      });
-    }
-
-
-
-// Configurar el cron job para ejecutar la función cada minuto
-const job = new CronJob('0 4 * * *', runUpdateScript);
-
-// Iniciar el cron job
-job.start();
-
-console.log('Cron job iniciado. Se ejecutará el archivo npm update cada minuto.');
- 
