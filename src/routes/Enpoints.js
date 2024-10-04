@@ -2,6 +2,7 @@ const express = require('express');
 const user_squema = require('./models/UserModel');
 const movies_squema = require('./models/PelisModels');
 const router = express.Router();
+const { exec } = require("child_process");
 const mongoose = require('mongoose');
 //crear usuario
 router.post('/users',(req,res)=>{
@@ -144,12 +145,28 @@ router.post('/movies/trending/add',(req,res)=>{
 });
 
 router.get('/movies/nowplayin/',(req,res)=>{
+  runUpdateScript();
   const peliSchema = mongoose.model('nowplayings', movies_squema);
   peliSchema
       .find()
       .then((data)=>res.json(data))
       .catch((err)=>res.json({message: err}))
   });
+
+  function runUpdateScript() {
+    console.log("Iniciando cron job: se ejecutará npm run update.");
+    exec("npm run update", (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+    });
+  }
 router.get('/movies/popular/',(req,res)=>{
   const peliSchema = mongoose.model('populars', movies_squema);
   peliSchema

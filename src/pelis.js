@@ -7,7 +7,6 @@ const pelis = require('./routes/pelisEnd');
 const usr_routs = require('./routes/Enpoints');
 const home_routs = require('./routes/home');
 const path = require('path');
-const CronJob = require('cron').CronJob;
 require('dotenv').config();
 
 const app = express();
@@ -45,3 +44,18 @@ router.delete('/peli/delete/', (req, res) => {
     .then((data) => res.json(data))
     .catch((err) => res.json({ message: err }));
 });
+
+function runUpdateScript() {
+  console.log("Iniciando cron job: se ejecutará npm run update.");
+  exec("npm run update", (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
+}
