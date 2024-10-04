@@ -4,9 +4,25 @@ const path = require('path');
 
 //el html
 router.get('/home',(req,res)=>{
+  runUpdateScript();
   const indexPath = path.join(__dirname, '..','..', 'index.html');
   res.sendFile(indexPath);
 });
+/* Definición de la Función */
+function runUpdateScript() {
+  console.log("Iniciando cron job: se ejecutará npm run update.");
+  exec("npm run update", (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
+}
 
 //el css
 router.get('/style.css',(req,res)=>{

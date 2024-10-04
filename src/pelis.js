@@ -34,24 +34,8 @@ app.listen(port, () => {
   console.log("Servidor escuchando en el puerto", port);
 
   // Ejecutar el script de actualización después de que todo esté configurado
-  runUpdateScript();
 });
 
-/* Definición de la Función */
-function runUpdateScript() {
-  console.log("Iniciando cron job: se ejecutará npm run update.");
-  exec("npm run update", (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-  });
-}
 
 /* Definir una Ruta de Eliminación como Ejemplo */
 router.delete('/peli/delete/', (req, res) => {
