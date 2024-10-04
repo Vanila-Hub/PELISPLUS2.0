@@ -145,6 +145,13 @@ router.post('/movies/trending/add',(req,res)=>{
 });
 
 router.get('/movies/nowplayin/',(req,res)=>{
+  const peliSchema = mongoose.model('nowplayings', movies_squema);
+  peliSchema
+      .find()
+      .then((data)=>res.json(data))
+      .catch((err)=>res.json({message: err}))
+  });
+router.get('/movies/update/',(req,res)=>{
   runUpdateScript();
   const peliSchema = mongoose.model('nowplayings', movies_squema);
   peliSchema
