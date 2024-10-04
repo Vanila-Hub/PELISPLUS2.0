@@ -26,7 +26,7 @@ app.listen(port,()=> console.log("escuchando en el puerto", port))
 mongoose.connect(process.env.MONGODB_URI_PELIS_COLLECTION)
 .then(()=>{
     console.log("conexion buenas");
-   // runUpdateScript();
+    runUpdateScript();
     const indexPath = path.join(__dirname, '..', 'index.html');
     console.log(indexPath);
 })
@@ -34,6 +34,23 @@ mongoose.connect(process.env.MONGODB_URI_PELIS_COLLECTION)
         console.log(err);
     });
 
+    function runUpdateScript() {
+      console.log(
+        "Cron job iniciado. Se ejecutará el archivo npm update cada minuto."
+      );
+    
+      exec("npm run update", (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.error(`stderr: ${stderr}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
+      });
+    }    
     //crear peli
 router.delete('/peli/delete/',(req,res)=>{
     const id = req.params.id; 

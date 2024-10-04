@@ -22,26 +22,7 @@ mongoose
   .connect(process.env.MONGODB_URI_USER_COLLECTION)
   .then(() => {
     console.log("conexion succsesfull");
-    runUpdateScript();
   })
   .catch((err) => {
     console.log(err);
   });
-
-function runUpdateScript() {
-  console.log(
-    "Cron job iniciado. Se ejecutará el archivo npm update cada minuto."
-  );
-
-  exec("npm run update", (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-  });
-}
