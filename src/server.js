@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const cors = require("cors");
 const usr_routs = require("./routes/user");
 const home_routs = require("./routes/home");
 
@@ -11,6 +12,9 @@ const app = express();
 const port = 2007;
 
 /*middleware*/
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
 app.use("/pelis-plus", usr_routs, home_routs);
 
