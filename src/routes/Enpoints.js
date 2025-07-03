@@ -30,6 +30,11 @@ router.get('/users/get/:id',(req,res)=>{
     });
     //coger 1 USUARIO by email
 router.get('/user/:nombre',(req,res)=>{
+  // Set CORS headers explicitly for this route
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
   const user = req.params.nombre;
   user_squema.findOne({nombre: user})
   .then((result) =>{
