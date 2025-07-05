@@ -6,6 +6,11 @@ const { exec } = require("child_process");
 const mongoose = require('mongoose');
 //crear usuario
 router.post('/users',(req,res)=>{
+    // Set CORS headers explicitly for this route
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    
     const user = user_squema(req.body);
     user.save()
     .then((data)=>res.json(data))
@@ -14,7 +19,12 @@ router.post('/users',(req,res)=>{
 
 //get user
 router.get('/users',(req,res)=>{
-user_squema
+  // Set CORS headers explicitly for this route
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  user_squema
     .find()
     .then((data)=>res.json(data))
     .catch((err)=>res.json({message: err}))

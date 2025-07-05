@@ -1,5 +1,6 @@
 const { exec } = require('child_process');
 const express = require('express');
+const cors = require('cors');
 const router = express.Router();
 const peli_squema = require('./routes/models/PelisModels');
 const mongoose = require('mongoose');
@@ -10,9 +11,10 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
-const port = 2008;
+const port = process.env.PORT || 2007;
 
 /* Middleware */
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use('/pelis-plus', pelis, usr_routs, home_routs);
 
