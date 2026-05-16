@@ -1,13 +1,15 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const peliSchema = require('./models/PelisModels');
 const router = express.Router();
 
-// Delete all pelis
-router.delete(':delete', (req, res) => {
-  peliSchema
+const peliModel = mongoose.models.peliculas || mongoose.model('peliculas', peliSchema);
+
+router.delete('/delete', (req, res) => {
+  peliModel
     .deleteMany({})
     .then((data) => res.json(data))
-    .catch((err) => res.json({ message: err }));
+    .catch((err) => res.json({ message: err.message }));
 });
 
 module.exports = router;
